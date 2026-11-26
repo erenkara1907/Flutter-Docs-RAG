@@ -62,8 +62,10 @@
   .starters { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
   .starters li { border-bottom: 1px solid var(--line); }
   .starter { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 52px;
-             padding: 10px 4px; background: none; border: 0; cursor: pointer; transition: padding .18s var(--ease), color .18s var(--ease); }
-  .starter:hover { padding-left: 10px; color: var(--accent); }
+             padding: 10px 4px; background: none; border: 0; cursor: pointer; transition: color .18s var(--ease); }
+  .starter span { transition: transform .18s var(--ease); }
+  .starter:hover { color: var(--accent); }
+  .starter:hover span { transform: translateX(6px); }
   .starter svg { width: 18px; height: 18px; flex: none; color: var(--muted); }
 
   .turn { margin: 0 0 28px; }
