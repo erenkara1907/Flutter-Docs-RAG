@@ -20,15 +20,17 @@ Retrieval 65 cevaplanabilir soru üzerinde, sayfa URL'si düzeyinde ölçülür.
 
 Tam hat (cevap + judge, Groq modelleri, 80 soru):
 
-| | r0 | r4v |
-|---|---|---|
-| Cevaplanan oranı | 0.80 | 0.91 |
-| Red doğruluğu | 0.838 | 0.925 |
-| Kaynak doğruluğu | 0.885 | 0.915 |
-| Accuracy (cevaplananlarda, 1-5) | 4.46 | 4.56 |
-| Faithfulness (cevaplananlarda, 1-5) | 4.90 | 4.92 |
-| Gecikme (ms/soru) | 1022 | 1384 |
-| LLM çağrısı/soru | 1.0 | 1.9 |
+| | r0 | r4v | r7 (canlı) |
+|---|---|---|---|
+| Cevaplanan oranı | 0.80 | 0.91 | 0.95 |
+| Red doğruluğu | 0.838 | 0.925 | 0.963 |
+| Kaynak doğruluğu | 0.885 | 0.915 | 0.839 |
+| Accuracy (cevaplananlarda, 1-5) | 4.46 | 4.56 | 4.45 |
+| Faithfulness (cevaplananlarda, 1-5) | 4.90 | 4.92 | 4.84 |
+| Gecikme (ms/soru) | 1022 | 1384 | 1492 |
+| LLM çağrısı/soru | 1.0 | 1.9 | 1.9 |
+
+r7, r4v'den kaynak doğruluğunda ve faithfulness'ta geride (BM25 daha az isabetli pasaj getiriyor). Daha çok soruyu "bulamadım" yerine cevaplaması, bu cevapların daha sık yanlış kaynağa dayanması anlamına da gelebilir.
 
 ## Ne öğrendim
 
