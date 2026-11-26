@@ -1,0 +1,7 @@
+name: r5
+chunker: heading
+embedding: bge-small
+rewrite: true
+rerank: true
+top_k: 5
+candidates: 20

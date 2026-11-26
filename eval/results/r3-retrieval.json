@@ -1,0 +1,1245 @@
+{
+  "config": "r3",
+  "stage": "retrieval",
+  "k": 5,
+  "n_scored": 65,
+  "n_skipped_out_of_scope": 15,
+  "overall": {
+    "hit@5": 0.8615384615384616,
+    "recall@5": 0.8076923076923077,
+    "mrr": 0.7307692307692307,
+    "ndcg@5": 0.7247333150391827,
+    "n": 65
+  },
+  "by_category": {
+    "multi": {
+      "hit@5": 0.7333333333333333,
+      "recall@5": 0.5,
+      "mrr": 0.6333333333333333,
+      "ndcg@5": 0.4886536057599922,
+      "n": 15
+    },
+    "single": {
+      "hit@5": 0.975,
+      "recall@5": 0.975,
+      "mrr": 0.83125,
+      "ndcg@5": 0.8679063769875535,
+      "n": 40
+    },
+    "tr": {
+      "hit@5": 0.6,
+      "recall@5": 0.6,
+      "mrr": 0.475,
+      "ndcg@5": 0.5061606311644851,
+      "n": 10
+    }
+  },
+  "by_lang": {
+    "en": {
+      "hit@5": 0.9090909090909091,
+      "recall@5": 0.8454545454545455,
+      "mrr": 0.7772727272727272,
+      "ndcg@5": 0.7644738030164004,
+      "n": 55
+    },
+    "tr": {
+      "hit@5": 0.6,
+      "recall@5": 0.6,
+      "mrr": 0.475,
+      "ndcg@5": 0.5061606311644851,
+      "n": 10
+    }
+  },
+  "per_question": [
+    {
+      "id": "q001",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I turn on Android's predictive back animation for my app?",
+      "expected_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back",
+        "https://docs.flutter.dev/platform-integration/android/setup"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q002",
+      "category": "single",
+      "lang": "en",
+      "question": "Is there a command to hide the red DEBUG ribbon while I'm debugging in VS Code?",
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/vs-code"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/vs-code",
+        "https://docs.flutter.dev/testing/native-debugging",
+        "https://docs.flutter.dev/tools/devtools/vscode"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q003",
+      "category": "single",
+      "lang": "en",
+      "question": "My app loses its state whenever the OS restarts it. Where do I learn how to restore it?",
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/intro"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/restore-state-android",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/intro",
+        "https://docs.flutter.dev/ui/adaptive-responsive/best-practices"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575
+    },
+    {
+      "id": "q004",
+      "category": "single",
+      "lang": "en",
+      "question": "What are the pillars of Flutter's security strategy?",
+      "expected_urls": [
+        "https://docs.flutter.dev/security"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/security"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q005",
+      "category": "single",
+      "lang": "en",
+      "question": "Can Dart code keep running when my app isn't in the foreground, and how is that set up?",
+      "expected_urls": [
+        "https://docs.flutter.dev/packages-and-plugins/background-processes"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/faq",
+        "https://docs.flutter.dev/packages-and-plugins/background-processes",
+        "https://docs.flutter.dev/ui/adaptive-responsive/best-practices"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575
+    },
+    {
+      "id": "q006",
+      "category": "single",
+      "lang": "en",
+      "question": "In the SQLite to-do example, how does each new item get its id?",
+      "expected_urls": [
+        "https://docs.flutter.dev/app-architecture/design-patterns/sql"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/persistence/sqlite",
+        "https://docs.flutter.dev/app-architecture/design-patterns/sql"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575
+    },
+    {
+      "id": "q007",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I run staging and production variants of my app on Windows desktop?",
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/flavors-windows"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/desktop",
+        "https://docs.flutter.dev/deployment/flavors-ios",
+        "https://docs.flutter.dev/deployment/flavors-windows",
+        "https://docs.flutter.dev/deployment/windows",
+        "https://docs.flutter.dev/deployment/flavors"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.3333333333333333,
+      "ndcg@5": 0.5
+    },
+    {
+      "id": "q008",
+      "category": "single",
+      "lang": "en",
+      "question": "What's the right way to remove the Flutter SDK from my machine?",
+      "expected_urls": [
+        "https://docs.flutter.dev/install/uninstall"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/install/uninstall",
+        "https://docs.flutter.dev/install",
+        "https://docs.flutter.dev/add-to-app/ios/project-setup"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q009",
+      "category": "single",
+      "lang": "en",
+      "question": "How can I get crash reports from my users' devices into a monitoring dashboard?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/maintenance/error-reporting"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/maintenance/error-reporting",
+        "https://docs.flutter.dev/resources/bug-reports",
+        "https://docs.flutter.dev/reference/user-surveys",
+        "https://docs.flutter.dev/reference/crash-reporting"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q010",
+      "category": "single",
+      "lang": "en",
+      "question": "What's the best way to put together a minimal reproduction when filing a Flutter bug?",
+      "expected_urls": [
+        "https://docs.flutter.dev/resources/bug-reports"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/bug-reports",
+        "https://docs.flutter.dev/learn/pathway/tutorial/set-up-state-project",
+        "https://docs.flutter.dev/ai/best-practices",
+        "https://docs.flutter.dev/resources/support",
+        "https://docs.flutter.dev/ui/animations/tutorial"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q011",
+      "category": "single",
+      "lang": "en",
+      "question": "Is there a tool that automatically updates code that uses deprecated Flutter APIs?",
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/flutter-fix"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/flutter-fix",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.34.1",
+        "https://docs.flutter.dev/platform-integration/web/initialization"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q012",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I set up ChromeDriver to run Flutter integration tests in a browser?",
+      "expected_urls": [
+        "https://docs.flutter.dev/testing/integration-tests"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/testing/integration-tests",
+        "https://docs.flutter.dev/platform-integration/web/building",
+        "https://docs.flutter.dev/platform-integration/web/setup"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q013",
+      "category": "single",
+      "lang": "en",
+      "question": "What does json_serializable generate for me so I don't write serialization code by hand?",
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q014",
+      "category": "single",
+      "lang": "en",
+      "question": "What are the steps for generating type-safe platform bindings with Pigeon?",
+      "expected_urls": [
+        "https://docs.flutter.dev/interop/pigeon"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/platform-channels",
+        "https://docs.flutter.dev/interop/pigeon",
+        "https://docs.flutter.dev/interop"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575
+    },
+    {
+      "id": "q015",
+      "category": "single",
+      "lang": "en",
+      "question": "Which command produces an App Store-ready bundle for my iOS app, and where does the output go?",
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/ios"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/ios"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q016",
+      "category": "single",
+      "lang": "en",
+      "question": "Which system packages do I need on Ubuntu before installing Flutter?",
+      "expected_urls": [
+        "https://docs.flutter.dev/install/manual"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/install/manual",
+        "https://docs.flutter.dev/platform-integration/linux/setup",
+        "https://docs.flutter.dev/flutter-for/react-native-devs"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q017",
+      "category": "single",
+      "lang": "en",
+      "question": "What do I need to host so Android opens my app instead of the browser for a web link?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/set-up-app-links"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/set-up-app-links",
+        "https://docs.flutter.dev/cookbook/navigation/set-up-universal-links"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q018",
+      "category": "single",
+      "lang": "en",
+      "question": "How can I restrict a text field to 5 characters?",
+      "expected_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/forms/text-field-changes",
+        "https://docs.flutter.dev/ui/internationalization",
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input",
+        "https://docs.flutter.dev/cookbook/forms/text-input"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.3333333333333333,
+      "ndcg@5": 0.5
+    },
+    {
+      "id": "q019",
+      "category": "single",
+      "lang": "en",
+      "question": "When adding Flutter to an existing Android app, should I use FlutterFragment or FlutterActivity?",
+      "expected_urls": [
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q020",
+      "category": "single",
+      "lang": "en",
+      "question": "Where should I start if I want a cloud database for my Flutter app?",
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database",
+        "https://docs.flutter.dev/data-and-backend/firebase",
+        "https://docs.flutter.dev/cookbook/games/firestore-multiplayer"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q021",
+      "category": "single",
+      "lang": "en",
+      "question": "How does a user type a line break in the AI chat prompt box on a phone versus a desktop?",
+      "expected_urls": [
+        "https://docs.flutter.dev/ai/ai-toolkit/user-experience"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ai/ai-toolkit/user-experience",
+        "https://docs.flutter.dev/ai/ai-toolkit/chat-client-sample",
+        "https://docs.flutter.dev/ai/best-practices/prompting"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q022",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I keep my Play Store service account credentials safe when building on a CI server?",
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/cd"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/cd",
+        "https://docs.flutter.dev/platform-integration/macos/building",
+        "https://docs.flutter.dev/platform-integration/web/faq",
+        "https://docs.flutter.dev/data-and-backend/google-apis"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q023",
+      "category": "single",
+      "lang": "en",
+      "question": "My animations look janky. What should I check first when profiling?",
+      "expected_urls": [
+        "https://docs.flutter.dev/perf/rendering-performance"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/perf/rendering-performance",
+        "https://docs.flutter.dev/perf",
+        "https://docs.flutter.dev/tools/devtools/performance",
+        "https://docs.flutter.dev/perf/faq",
+        "https://docs.flutter.dev/tools/devtools"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q024",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I feed audio data into a stream while using flutter_soloud?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/audio/soloud"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/audio/soloud"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q025",
+      "category": "single",
+      "lang": "en",
+      "question": "What do the colored bars in DevTools' Flutter frames chart show?",
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/devtools/performance"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/devtools/performance",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.19.0",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.30.0",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.61.0"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q026",
+      "category": "single",
+      "lang": "en",
+      "question": "Which accessibility standards and regulations might apply to my Flutter app?",
+      "expected_urls": [
+        "https://docs.flutter.dev/ui/accessibility"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ui/accessibility",
+        "https://docs.flutter.dev/ui/accessibility/accessibility-testing",
+        "https://docs.flutter.dev/ui/accessibility/web-accessibility"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q027",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I find AI skills that a package I just added ships with?",
+      "expected_urls": [
+        "https://docs.flutter.dev/ai/tools"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/packages-and-plugins/using-packages",
+        "https://docs.flutter.dev/ai/tools",
+        "https://docs.flutter.dev/packages-and-plugins/developing-packages",
+        "https://docs.flutter.dev/ai/get-started"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575
+    },
+    {
+      "id": "q028",
+      "category": "single",
+      "lang": "en",
+      "question": "In my iOS App Clip target, what do I add to Build Phases so the Dart code gets compiled?",
+      "expected_urls": [
+        "https://docs.flutter.dev/platform-integration/ios/ios-app-clip"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/ios/ios-app-clip"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q029",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I use a custom font throughout my app?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs",
+        "https://docs.flutter.dev/flutter-for/swiftui-devs"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q030",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I read the text a user has typed into a text field?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs",
+        "https://docs.flutter.dev/flutter-for/uikit-devs",
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q031",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I let users swipe a list item away to delete it?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/gestures/dismissible"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/gestures/dismissible",
+        "https://docs.flutter.dev/cookbook/testing/widget/tap-drag"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q032",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I show a brief message at the bottom of the screen after an action?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/snackbars"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/returning-data",
+        "https://docs.flutter.dev/cookbook/design/snackbars",
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment",
+        "https://docs.flutter.dev/cookbook/testing/widget/tap-drag"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575
+    },
+    {
+      "id": "q033",
+      "category": "single",
+      "lang": "en",
+      "question": "What's the efficient way to display a list with thousands of items?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/lists/long-lists"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/lists/grid-lists",
+        "https://docs.flutter.dev/flutter-for/swiftui-devs",
+        "https://docs.flutter.dev/cookbook/lists/spaced-items",
+        "https://docs.flutter.dev/cookbook/lists/long-lists",
+        "https://docs.flutter.dev/flutter-for/compose-devs"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.25,
+      "ndcg@5": 0.43067655807339306
+    },
+    {
+      "id": "q034",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I make a list scroll sideways instead of vertically?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/lists/horizontal-list"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/lists/floating-app-bar",
+        "https://docs.flutter.dev/ui/adaptive-responsive/best-practices",
+        "https://docs.flutter.dev/cookbook/lists/horizontal-list",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/lists/spaced-items"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.3333333333333333,
+      "ndcg@5": 0.5
+    },
+    {
+      "id": "q035",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I add a slide-out side navigation menu to a screen?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/drawer"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/adaptive-layout",
+        "https://docs.flutter.dev/learn/pathway/tutorial/navigation",
+        "https://docs.flutter.dev/cookbook/effects/nested-nav"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q036",
+      "category": "single",
+      "lang": "en",
+      "question": "How can I save a small value like a counter so it survives app restarts?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/persistence/key-value"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/persistence/key-value",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/testing/integration-tests"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q037",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I connect my app to a WebSocket server and listen to messages?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/networking/web-sockets"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/networking/web-sockets"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q038",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I fade a widget in and out?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/animation/opacity-animation"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/animation/opacity-animation",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q039",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I define app-wide colors and text styles that widgets can reuse?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/themes"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/themes",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q040",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I update my Flutter SDK to the newest version?",
+      "expected_urls": [
+        "https://docs.flutter.dev/install/upgrade"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/install/upgrade",
+        "https://docs.flutter.dev/install/archive",
+        "https://docs.flutter.dev/security",
+        "https://docs.flutter.dev/tools/devtools/cli"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q041",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I fetch a list of items from a REST API and show it in a scrollable list?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/networking/fetch-data",
+        "https://docs.flutter.dev/cookbook/lists/long-lists"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/lists/mixed-list",
+        "https://docs.flutter.dev/cookbook/testing/widget/scrolling",
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/cookbook/lists/spaced-items"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q042",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I open a new screen with some data and get a value back when it closes?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/passing-data",
+        "https://docs.flutter.dev/cookbook/navigation/returning-data"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/returning-data",
+        "https://docs.flutter.dev/learn/pathway/tutorial/navigation",
+        "https://docs.flutter.dev/cookbook/navigation/passing-data"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 0.9197207891481876
+    },
+    {
+      "id": "q043",
+      "category": "multi",
+      "lang": "en",
+      "question": "What are my options for storing data on the device, and how do I save a simple setting?",
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database",
+        "https://docs.flutter.dev/cookbook/persistence/key-value"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/persistence/key-value",
+        "https://docs.flutter.dev/app-architecture/design-patterns/key-value-data",
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database",
+        "https://docs.flutter.dev/app-architecture/design-patterns/sql"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 0.9197207891481876
+    },
+    {
+      "id": "q044",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I test a widget that depends on a network call without hitting the real server?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/testing/unit/mocking",
+        "https://docs.flutter.dev/cookbook/testing/widget/introduction"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/app-architecture/case-study/testing",
+        "https://docs.flutter.dev/tools/devtools/custom-tool",
+        "https://docs.flutter.dev/flutter-for/uikit-devs",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q045",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I set up separate dev and production builds for both Android and iOS?",
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/flavors",
+        "https://docs.flutter.dev/deployment/flavors-ios"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration",
+        "https://docs.flutter.dev/deployment/flavors-ios",
+        "https://docs.flutter.dev/tools/pubspec",
+        "https://docs.flutter.dev/deployment/android"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 0.5,
+      "ndcg@5": 0.38685280723454163
+    },
+    {
+      "id": "q046",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I add a custom typeface and make it the default text style for the whole app?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/cookbook/design/themes"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs",
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/flutter-for/uikit-devs"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584
+    },
+    {
+      "id": "q047",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I find out what is making my release build large?",
+      "expected_urls": [
+        "https://docs.flutter.dev/perf/app-size",
+        "https://docs.flutter.dev/tools/devtools/app-size"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/perf/faq",
+        "https://docs.flutter.dev/perf/app-size",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs",
+        "https://docs.flutter.dev/deployment/android"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 0.5,
+      "ndcg@5": 0.38685280723454163
+    },
+    {
+      "id": "q048",
+      "category": "multi",
+      "lang": "en",
+      "question": "My app stutters while scrolling. How do I profile it and what general practices help?",
+      "expected_urls": [
+        "https://docs.flutter.dev/perf/ui-performance",
+        "https://docs.flutter.dev/perf/best-practices",
+        "https://docs.flutter.dev/tools/devtools/performance"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/perf/faq",
+        "https://docs.flutter.dev/tools/devtools",
+        "https://docs.flutter.dev/cookbook/testing/integration/profiling"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q049",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I add a Flutter module to an existing iOS app and debug it?",
+      "expected_urls": [
+        "https://docs.flutter.dev/add-to-app/ios/project-setup",
+        "https://docs.flutter.dev/add-to-app/debugging"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/add-to-app",
+        "https://docs.flutter.dev/add-to-app/ios/project-setup-legacy"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q050",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I make a web link open a specific screen in my Android app?",
+      "expected_urls": [
+        "https://docs.flutter.dev/ui/navigation/deep-linking",
+        "https://docs.flutter.dev/cookbook/navigation/set-up-app-links"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ui/navigation/deep-linking",
+        "https://docs.flutter.dev/cookbook/navigation/set-up-app-links",
+        "https://docs.flutter.dev/flutter-for/android-devs"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q051",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I organize my app into layers and share state between screens with ChangeNotifier?",
+      "expected_urls": [
+        "https://docs.flutter.dev/app-architecture/guide",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/simple"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/change-notifier",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/simple",
+        "https://docs.flutter.dev/app-architecture/concepts",
+        "https://docs.flutter.dev/app-architecture/guide"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6509209298071326
+    },
+    {
+      "id": "q052",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I publish to Google Play and automate the release process?",
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/android",
+        "https://docs.flutter.dev/deployment/cd"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/android",
+        "https://docs.flutter.dev/cookbook/games/achievements-leaderboard",
+        "https://docs.flutter.dev/deployment/linux"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584
+    },
+    {
+      "id": "q053",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I validate a form and also read what the user entered?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/forms/validation",
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/forms/validation"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584
+    },
+    {
+      "id": "q054",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I keep heavy JSON parsing from freezing the UI?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/perf/isolates"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs",
+        "https://docs.flutter.dev/flutter-for/uikit-devs",
+        "https://docs.flutter.dev/perf/faq"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584
+    },
+    {
+      "id": "q055",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I support screen reader users and verify that my app works with them?",
+      "expected_urls": [
+        "https://docs.flutter.dev/ui/accessibility/assistive-technologies",
+        "https://docs.flutter.dev/ui/accessibility/accessibility-testing"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ui/accessibility/assistive-technologies",
+        "https://docs.flutter.dev/ui/accessibility"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584
+    },
+    {
+      "id": "q071",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Uygulamamda Android'in tahmini geri (predictive back) animasyonunu nasıl açarım?",
+      "expected_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back",
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment",
+        "https://docs.flutter.dev/platform-integration/android/setup"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q072",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Flutter SDK'yı bilgisayarımdan doğru şekilde nasıl kaldırırım?",
+      "expected_urls": [
+        "https://docs.flutter.dev/install/uninstall"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/sdk",
+        "https://docs.flutter.dev/tools/pubspec",
+        "https://docs.flutter.dev/ui/internationalization",
+        "https://docs.flutter.dev/install/uninstall"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.25,
+      "ndcg@5": 0.43067655807339306
+    },
+    {
+      "id": "q073",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Kullanımdan kaldırılmış (deprecated) Flutter API'lerini kullanan kodu otomatik güncelleyen bir araç var mı?",
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/flutter-fix"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/courses",
+        "https://docs.flutter.dev/tools/flutter-fix",
+        "https://docs.flutter.dev/platform-integration/platform-channels",
+        "https://docs.flutter.dev/platform-integration/web/wasm"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575
+    },
+    {
+      "id": "q074",
+      "category": "tr",
+      "lang": "tr",
+      "question": "json_serializable kullanırsam serileştirme kodunu elle yazmam gerekmesin diye neyi otomatik üretir?",
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q075",
+      "category": "tr",
+      "lang": "tr",
+      "question": "iOS uygulamamın App Store'a yüklenecek paketini hangi komutla oluştururum ve çıktı nereye düşer?",
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/ios"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/ios",
+        "https://docs.flutter.dev/platform-integration/ios/apple-frameworks"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q076",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Uygulamamın her yerinde özel bir yazı tipini (font) nasıl kullanırım?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/flutter-for/compose-devs",
+        "https://docs.flutter.dev/ui/design/text/typography"
+      ],
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "id": "q077",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Kullanıcının bir TextField'a yazdığı metni nasıl okurum?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/forms/text-input",
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input",
+        "https://docs.flutter.dev/cookbook/forms/text-field-changes"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q078",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Bir işlemden sonra ekranın altında kısa bir mesaj nasıl gösteririm?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/snackbars"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/courses",
+        "https://docs.flutter.dev/ui/adaptive-responsive/platform-adaptations",
+        "https://docs.flutter.dev/app-architecture/case-study"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q079",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Binlerce öğeli bir listeyi verimli şekilde nasıl gösteririm?",
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/lists/long-lists"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/courses",
+        "https://docs.flutter.dev/app-architecture/design-patterns/sql",
+        "https://docs.flutter.dev/ai/best-practices/mode-of-interaction"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    },
+    {
+      "id": "q080",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Flutter SDK'mı en yeni sürüme nasıl güncellerim?",
+      "expected_urls": [
+        "https://docs.flutter.dev/install/upgrade"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/sdk",
+        "https://docs.flutter.dev/resources/bug-reports",
+        "https://docs.flutter.dev/resources/courses",
+        "https://docs.flutter.dev/perf/antialiasing"
+      ],
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0
+    }
+  ]
+}

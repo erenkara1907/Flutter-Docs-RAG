@@ -1,0 +1,21 @@
+id,human_accuracy,human_faithfulness,notes
+q036,5,5,[puanlayan: Claude; insan degil] referansla birebir; her adim pasajlarda var
+q049,5,4,[puanlayan: Claude; insan degil] CocoaPods ve flutter attach var; FlutterEngine ile controller adimi pasajlarda yalniz ima edilmis
+q037,4,4,[puanlayan: Claude; insan degil] paket ekleme ve mesaj gonderme eksik; stream.listen alternatifi pasajlarda yok
+q029,5,4,[puanlayan: Claude; insan degil] tum adimlar dogru; temada varsayilan font ayrintisi pasajlarda gorunmuyor
+q031,5,5,[puanlayan: Claude; insan degil] Dismissible key onDismissed hepsi pasajlarda
+q033,5,5,[puanlayan: Claude; insan degil] ListView.builder lazy mantik pasajlarla birebir
+q012,5,5,[puanlayan: Claude; insan degil] kurulum PATH dogrulama ve calistirma pasajlarda
+q042,5,4,[puanlayan: Claude; insan degil] pop(deger) ve veri aktarimi dogru; then/await ayrintisi pasajlarda gorunmuyor
+q028,2,5,[puanlayan: Claude; insan degil] soru derleme icin build komutunu soruyor; cevap embed_and_thin veriyor yani yanlis faz; pasaja sadik ama yanlis pasaj
+q074,5,4,[puanlayan: Claude; insan degil] .g.dart ve boilerplate dogru; toJson fromJson ve model yani ayrintisi pasajlarda gorunmuyor
+q045,2,3,[puanlayan: Claude; insan degil] Android productFlavors ve --flavor yok; verilen build komutlari flavor secmiyor; pasajlar baglanti kurulmadan birlestirilmis
+q023,2,5,[puanlayan: Claude; insan degil] profile mode ve gereksiz rebuild kontrolu yok; baska gecerli teknik anlatiliyor; pasajlara sadik
+q014,5,5,[puanlayan: Claude; insan degil] adimlar pasajla birebir
+q048,3,4,[puanlayan: Claude; insan degil] profile mode ve genel pratikler eksik; araclar dogru; 16 ms ayrintisi pasajlarda gorunmuyor
+q021,5,5,[puanlayan: Claude; insan degil] mobil Return web ve desktop Shift+Enter
+q071,5,5,[puanlayan: Claude; insan degil] manifest ozelligi ve Android 13 kosulu dogru
+q005,5,4,[puanlayan: Claude; insan degil] isolate dispatcher WorkManager dogru; pluginle kayit ayrintisi pasajlarda yok
+q034,5,5,[puanlayan: Claude; insan degil] scrollDirection Axis.horizontal
+q022,4,4,[puanlayan: Claude; insan degil] sifreli ortam degiskeni ve konsola yazmama dogru; --dart-define eksik; base64 ve degisken adi karistirilmis
+q024,5,5,[puanlayan: Claude; insan degil] setBufferStream addAudioDataStream setDataIsEnded pasajla birebir

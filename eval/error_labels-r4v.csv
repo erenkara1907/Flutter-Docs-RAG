@@ -1,0 +1,12 @@
+id,kinds,suggested_cause,cause,reason
+q002,retrieval_miss+refused,retrieval_ranking,rewrite_lossy,"[LLM] Sorgu 'debugShowCheckedModeBanner false' olmus; 'VS Code' dustu, bekleneni vs-code sayfasi 6. siraya inmis"
+q003,retrieval_miss,retrieval_ranking,ambiguous_golden,"[LLM] Gelen Android ve iOS restore-state sayfalari soruyu zaten cevapliyor; altin set state-mgmt/intro bekliyor"
+q006,refused,,chunking,"[LLM] Beklenen sayfa 1. sirada ama top-5 pasajlarinda id uretimine dair anahtar kelime yok; cevap sayfanin baska parcasinda"
+q017,low_accuracy,,chunking,"[LLM] Sayfa 1. sirada; judge'a gore pasajlarda assetlinks.json yok, model eksik bilgiyle cevapladi (pasajlari ben dogrulamadim)"
+q021,refused,,wrong_refusal,"[LLM] user-experience sayfasinin parcasi top-5'te ve Shift/Return anahtar kelimelerini iceriyor; model yine de bulamadim dedi"
+q023,low_accuracy,,ambiguous_golden,"[LLM] Cevap DevTools ile jank bakmayi anlatiyor, gecerli ve sadik; referans profile mode ve rebuild bekliyor"
+q026,low_accuracy,,chunking,"[LLM] Sayfa 1. sirada; cevap yalniz CRPD'yi veriyor, WCAG ve EN 301 549 parcasi pasajlara girmemis olabilir (dogrulanmadi)"
+q042,retrieval_miss,retrieval_ranking,retrieval_ranking,"[LLM] Iki beklenen sayfadan biri 5. sirada, top-5 disinda; cevap yine de dogru (doruluk 5)"
+q045,retrieval_miss+refused,retrieval_semantic_gap,retrieval_semantic_gap,"[LLM] Soruda 'flavor' kelimesi yok; flavors sayfalari ilk 50'de bile yok"
+q052,refused,,multi_page_coverage,"[LLM] deployment/android geldi, deployment/cd gelmedi; top-5 pasajlarda otomasyon bilgisi yok, model reddetti"
+q053,refused,,multi_page_coverage,"[LLM] validation sayfasi geldi, retrieve-input yerine text-input geldi; model iki parcali soruyu cevaplayamadi"

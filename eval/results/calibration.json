@@ -1,0 +1,27 @@
+{
+  "accuracy": {
+    "n": 20,
+    "exact": 0.85,
+    "within_1": 1.0,
+    "mean_abs_diff": 0.15,
+    "bias": -0.05
+  },
+  "faithfulness": {
+    "n": 20,
+    "exact": 0.6,
+    "within_1": 0.95,
+    "mean_abs_diff": 0.45,
+    "bias": 0.45
+  },
+  "disagreements": [
+    {
+      "id": "q045",
+      "metric": "faithfulness",
+      "human": 3,
+      "judge": 5,
+      "judge_reasoning": "The assistant's answer focuses heavily on iOS-specific configuration (bundle IDs, xcconfig files) and CI/CD automation (Fastfile), which are not the primary steps for setting up separate builds as described in the reference. It completely omits the key Android step mentioned in the reference: defining `productFlavors` in the Gradle configuration. While the iOS details are supported by the passages, the omission of the Android setup makes the answer incomplete and partially incorrect relative to the reference."
+    }
+  ],
+  "meets_threshold": true,
+  "threshold": 0.7
+}

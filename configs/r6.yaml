@@ -1,0 +1,3 @@
+name: r6
+chunker: heading
+embedding: bm25

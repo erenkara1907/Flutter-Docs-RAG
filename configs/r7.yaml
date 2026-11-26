@@ -1,0 +1,4 @@
+name: r7
+chunker: heading
+embedding: bm25
+rewrite: true

@@ -1,0 +1,4 @@
+name: r4v
+chunker: heading
+embedding: bge-small
+rewrite: true

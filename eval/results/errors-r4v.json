@@ -1,0 +1,40 @@
+{
+  "n_failures": 11,
+  "counts": {
+    "chunking": 3,
+    "ambiguous_golden": 2,
+    "multi_page_coverage": 2,
+    "retrieval_ranking": 1,
+    "retrieval_semantic_gap": 1,
+    "rewrite_lossy": 1,
+    "wrong_refusal": 1
+  },
+  "top3": [
+    {
+      "cause": "chunking",
+      "count": 3,
+      "ids": [
+        "q006",
+        "q017",
+        "q026"
+      ]
+    },
+    {
+      "cause": "ambiguous_golden",
+      "count": 2,
+      "ids": [
+        "q003",
+        "q023"
+      ]
+    },
+    {
+      "cause": "multi_page_coverage",
+      "count": 2,
+      "ids": [
+        "q052",
+        "q053"
+      ]
+    }
+  ],
+  "unlabeled": []
+}

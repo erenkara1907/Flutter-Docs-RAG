@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flutter Docs RAG</title>
+<meta name="description" content="Flutter dokümanından, kaynak göstererek cevap veren ölçülmüş bir RAG sistemi.">
+<style>
+  :root {
+    --bg: #f7f8fa; --card: #ffffff; --text: #1b1f24; --muted: #5b6573; --line: #dde1e7;
+    --accent: #0b5fff; --accent-text: #ffffff; --warn-bg: #fff6e0; --warn-line: #e8c872; --err: #b3261e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151a; --card: #1a1e25; --text: #e8ebf0; --muted: #9aa4b2; --line: #2b313b;
+      --accent: #6ea0ff; --accent-text: #0b1220; --warn-bg: #2a2412; --warn-line: #6b5a1f; --err: #ff8a80;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 24px; }
+  form { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  textarea { width: 100%; min-height: 84px; resize: vertical; border: 1px solid var(--line); border-radius: 8px; padding: 10px;
+             background: var(--bg); color: var(--text); font: inherit; }
+  textarea:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+  .count { color: var(--muted); font-size: .85rem; }
+  button { background: var(--accent); color: var(--accent-text); border: 0; border-radius: 8px; padding: 10px 20px; font: inherit; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: progress; }
+  .examples { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .examples button { background: transparent; color: var(--accent); border: 1px solid var(--line); font-weight: 400; padding: 6px 12px; font-size: .9rem; }
+  #result { margin-top: 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .card.warn { background: var(--warn-bg); border-color: var(--warn-line); }
+  .answer { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0 0 12px; }
+  .label { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 12px 0 4px; }
+  ul.sources { margin: 0; padding-left: 20px; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .85rem; margin-top: 12px; }
+  .error { color: var(--err); }
+  footer { margin-top: 32px; color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Flutter Docs RAG</h1>
+  <p class="lead">Türkçe veya İngilizce sor; cevap yalnızca Flutter dokümanındaki parçalara dayanır ve kaynak linkiyle gelir.</p>
+
+  <form id="form">
+    <label for="question" class="label" style="margin-top:0">Sorun</label>
+    <textarea id="question" maxlength="300" placeholder="Row içinde bir widget kalan alanı nasıl kaplar?" required></textarea>
+    <div class="row">
+      <span class="count" id="count" aria-live="polite">0 / 300</span>
+      <button type="submit" id="submit">Sor</button>
+    </div>
+    <ul class="examples" id="examples"></ul>
+  </form>
+
+  <div id="result" aria-live="polite"></div>
+
+  <footer>
+    <p>İçerik: <a href="https://docs.flutter.dev" rel="noopener">docs.flutter.dev</a>, CC BY 3.0 (kod örnekleri BSD).
+       Doküman <code>flutter/website</code> deposunun <code>c1acb41</code> commit'ine (2026-11-23) sabittir; sonradan değişen sayfalar yansımaz,
+       sürüm notları yoktur.</p>
+    <p>Bu canlı sürüm yalnızca anahtar kelime aramasıyla (BM25) çalışır. Cevaplar bir dil modeli tarafından yazılır ve hata yapabilir;
+       kaynak linkinden kontrol et.</p>
+  </footer>
+</main>
+
+<script>
+  const EXAMPLES = [
+    "How do I make a child widget take all remaining space in a Row?",
+    "Liste kaydırırken sayfalama nasıl yapılır?",
+    "How do I validate a form field?",
+  ];
+  const DOCS_PREFIX = "https://docs.flutter.dev/";
+  const form = document.getElementById("form");
+  const input = document.getElementById("question");
+  const count = document.getElementById("count");
+  const submit = document.getElementById("submit");
+  const result = document.getElementById("result");
+
+  function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  function sourceList(sources) {
+    const list = el("ul", "sources");
+    for (const source of sources) {
+      if (typeof source.url !== "string" || !source.url.startsWith(DOCS_PREFIX)) continue;
+      const item = el("li");
+      const link = el("a", "", source.title || source.url);
+      link.href = source.url;
+      link.rel = "noopener";
+      link.target = "_blank";
+      item.appendChild(link);
+      list.appendChild(item);
+    }
+    return list;
+  }
+
+  function show(...nodes) {
+    result.replaceChildren(...nodes);
+  }
+
+  function showAnswer(data) {
+    const card = el("div", data.status === "answered" ? "card" : "card warn");
+    card.appendChild(el("p", "answer", data.answer));
+    if (data.sources.length) {
+      card.appendChild(el("div", "label", "Kaynaklar"));
+      card.appendChild(sourceList(data.sources));
+    }
+    if (data.related.length) {
+      card.appendChild(el("div", "label", "En yakın sayfalar"));
+      card.appendChild(sourceList(data.related));
+    }
+    if (data.search_query) {
+      card.appendChild(el("p", "meta", "Aranan sorgu: " + data.search_query));
+    }
+    show(card);
+  }
+
+  async function ask(question) {
+    submit.disabled = true;
+    show(el("p", "meta", "Aranıyor..."));
+    try {
+      const response = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        const message = typeof data.detail === "string" ? data.detail : "Bir hata oluştu. Tekrar dene.";
+        show(el("p", "error", message));
+        return;
+      }
+      showAnswer(data);
+    } catch (error) {
+      show(el("p", "error", "Sunucuya ulaşılamadı. Bağlantını kontrol edip tekrar dene."));
+    } finally {
+      submit.disabled = false;
+    }
+  }
+
+  input.addEventListener("input", () => { count.textContent = input.value.length + " / 300"; });
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (question) ask(question);
+  });
+
+  const examples = document.getElementById("examples");
+  for (const text of EXAMPLES) {
+    const item = el("li");
+    const button = el("button", "", text);
+    button.type = "button";
+    button.addEventListener("click", () => {
+      input.value = text;
+      count.textContent = text.length + " / 300";
+      input.focus();
+    });
+    item.appendChild(button);
+    examples.appendChild(item);
+  }
+</script>
+</body>
+</html>

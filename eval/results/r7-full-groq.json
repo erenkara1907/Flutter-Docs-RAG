@@ -1,0 +1,2684 @@
+{
+  "config": "r7",
+  "stage": "full",
+  "provider": "groq",
+  "models": {
+    "rewrite": "openai/gpt-oss-20b",
+    "rerank": "openai/gpt-oss-20b",
+    "answer": "openai/gpt-oss-120b",
+    "judge": "qwen/qwen3.8-27b"
+  },
+  "k": 5,
+  "overall": {
+    "n": 80,
+    "n_judged": 62,
+    "n_invalid_reply": 0,
+    "accuracy": 4.451612903225806,
+    "faithfulness": 4.838709677419355,
+    "source_accuracy": 0.8387096774193549,
+    "refusal_accuracy": 0.9625,
+    "answered_rate": 0.9538461538461539,
+    "out_of_scope_refused_rate": 1.0,
+    "mean_latency_ms": 1492.3225,
+    "mean_llm_calls": 1.9
+  },
+  "retrieval": {
+    "hit@5": 0.8615384615384616,
+    "mrr": 0.7051282051282052,
+    "ndcg@5": 0.6893749992484821,
+    "recall@5": 0.7794871794871795
+  },
+  "by_category": {
+    "multi": {
+      "n": 15,
+      "n_judged": 14,
+      "n_invalid_reply": 0,
+      "accuracy": 4.642857142857143,
+      "faithfulness": 4.714285714285714,
+      "source_accuracy": 0.9285714285714286,
+      "refusal_accuracy": 0.9333333333333333,
+      "answered_rate": 0.9333333333333333,
+      "out_of_scope_refused_rate": null,
+      "mean_latency_ms": 1843.9066666666665,
+      "mean_llm_calls": 2.0
+    },
+    "out_of_scope": {
+      "n": 15,
+      "n_judged": 0,
+      "n_invalid_reply": 0,
+      "accuracy": null,
+      "faithfulness": null,
+      "source_accuracy": null,
+      "refusal_accuracy": 1.0,
+      "answered_rate": null,
+      "out_of_scope_refused_rate": 1.0,
+      "mean_latency_ms": 850.2800000000001,
+      "mean_llm_calls": 1.6
+    },
+    "single": {
+      "n": 40,
+      "n_judged": 38,
+      "n_invalid_reply": 0,
+      "accuracy": 4.368421052631579,
+      "faithfulness": 4.842105263157895,
+      "source_accuracy": 0.8157894736842105,
+      "refusal_accuracy": 0.95,
+      "answered_rate": 0.95,
+      "out_of_scope_refused_rate": null,
+      "mean_latency_ms": 1542.685,
+      "mean_llm_calls": 1.95
+    },
+    "tr": {
+      "n": 10,
+      "n_judged": 10,
+      "n_invalid_reply": 0,
+      "accuracy": 4.5,
+      "faithfulness": 5.0,
+      "source_accuracy": 0.8,
+      "refusal_accuracy": 1.0,
+      "answered_rate": 1.0,
+      "out_of_scope_refused_rate": null,
+      "mean_latency_ms": 1726.56,
+      "mean_llm_calls": 2.0
+    }
+  },
+  "by_lang": {
+    "en": {
+      "n": 70,
+      "n_judged": 52,
+      "n_invalid_reply": 0,
+      "accuracy": 4.4423076923076925,
+      "faithfulness": 4.8076923076923075,
+      "source_accuracy": 0.8461538461538461,
+      "refusal_accuracy": 0.9571428571428572,
+      "answered_rate": 0.9454545454545454,
+      "out_of_scope_refused_rate": 1.0,
+      "mean_latency_ms": 1458.86,
+      "mean_llm_calls": 1.8857142857142857
+    },
+    "tr": {
+      "n": 10,
+      "n_judged": 10,
+      "n_invalid_reply": 0,
+      "accuracy": 4.5,
+      "faithfulness": 5.0,
+      "source_accuracy": 0.8,
+      "refusal_accuracy": 1.0,
+      "answered_rate": 1.0,
+      "out_of_scope_refused_rate": null,
+      "mean_latency_ms": 1726.56,
+      "mean_llm_calls": 2.0
+    }
+  },
+  "per_question": [
+    {
+      "id": "q001",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I turn on Android's predictive back animation for my app?",
+      "answerable": true,
+      "search_query": "enable Android predictive back animation Flutter",
+      "status": "answered",
+      "answer": "To enable predictive back animation on Android 13 or later, open your app's android/app/src/main/AndroidManifest.xml and add android:enableOnBackInvokedCallback=\"true\" to the <application> tag. This activates the predictive back callback that Flutter uses for the animation. On Android 14 (API level 34) the animation is enabled by default, so no extra change is needed for newer devices. After updating the manifest, rebuild the app to apply the setting.",
+      "sources": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back",
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 2189.9,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 4,
+      "judge_reasoning": "The assistant's answer correctly identifies the file, the attribute, and the Android version requirement as per the reference and passages. It also correctly notes that Android 14 enables this by default, which is supported by passage [3]. The advice to rebuild the app is standard procedural knowledge implied by the context of modifying source code, though not explicitly stated in the text, it is a reasonable and correct instruction for a developer."
+    },
+    {
+      "id": "q002",
+      "category": "single",
+      "lang": "en",
+      "question": "Is there a command to hide the red DEBUG ribbon while I'm debugging in VS Code?",
+      "answerable": true,
+      "search_query": "debugShowCheckedModeBanner false",
+      "status": "answered",
+      "answer": "Add the `debugShowCheckedModeBanner: false` flag to your `MaterialApp` (or `CupertinoApp`) widget to hide the red DEBUG banner while running the app, even when debugging from VS Code. For example:\n```dart\nrunApp(const MaterialApp(\n  home: MyHomePage(),\n  debugShowCheckedModeBanner: false,\n));\n```",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/effects/staggered-menu-animation"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/effects/staggered-menu-animation",
+        "https://docs.flutter.dev/cookbook/effects/shimmer-loading",
+        "https://docs.flutter.dev/cookbook/effects/drag-a-widget",
+        "https://docs.flutter.dev/cookbook/effects/download-button",
+        "https://docs.flutter.dev/ui/layout/constraints"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/vs-code"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 2317.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 2,
+      "faithfulness": 2,
+      "judge_reasoning": "The assistant's answer suggests using the `debugShowCheckedModeBanner` property, which is a valid way to hide the banner in code, but it contradicts the reference answer which specifically asks for a command (Command Palette/Inspector) to toggle it without code changes. The reference answer identifies the 'Toggle Debug Mode Banner' command, while the assistant provides a code-based solution. Regarding faithfulness, the provided passages only contain code examples that happen to use `debugShowCheckedModeBanner: false` in `MaterialApp` constructors. They do not contain any documentation explaining that this flag hides the banner, nor do they mention the 'Toggle Debug Mode Banner' command. Therefore, the assistant's explanation of *why* the flag works and its specific purpose is not supported by the provided text, which only shows it as a parameter in examples."
+    },
+    {
+      "id": "q003",
+      "category": "single",
+      "lang": "en",
+      "question": "My app loses its state whenever the OS restarts it. Where do I learn how to restore it?",
+      "answerable": true,
+      "search_query": "Flutter state restoration RestorationMixin restorationId",
+      "status": "answered",
+      "answer": "You can learn how to restore state by reading the state‑restoration overview in the Flutter docs, which explains enabling a `restorationScopeId` on `MaterialApp`/`CupertinoApp`, assigning `restorationId` to widgets, and using `RestorationMixin` with a `restoreState` method. The overview (passages 1 and 2) also shows how to use `RestorableProperty` for custom widgets and the “restorable” Navigator APIs. Additional detailed guides are listed in the other‑resources passage (3) and the iOS restoration page (5).",
+      "sources": [
+        "https://docs.flutter.dev/platform-integration/android/restore-state-android",
+        "https://docs.flutter.dev/platform-integration/ios/restore-state-ios"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/restore-state-android",
+        "https://docs.flutter.dev/platform-integration/ios/restore-state-ios"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/intro"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 1377.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 3,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer provides specific technical steps (like using `RestorationMixin`) which are supported by the passages, but it fails to directly answer the user's question about where to learn how to restore state by naming the specific documentation pages ('Restore state on Android' and 'Restore state on iOS') as the reference answer does. Instead, it vaguely refers to a 'state-restoration overview' and 'other-resources passage', missing the main point of directing the user to the specific platform-specific guides."
+    },
+    {
+      "id": "q004",
+      "category": "single",
+      "lang": "en",
+      "question": "What are the pillars of Flutter's security strategy?",
+      "answerable": true,
+      "search_query": "Flutter security strategy pillars",
+      "status": "answered",
+      "answer": "Flutter's security strategy is built on five pillars: Identify, Detect, Protect, Respond, and Recover.",
+      "sources": [
+        "https://docs.flutter.dev/security"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/security",
+        "https://docs.flutter.dev/reference/security-false-positives"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/security"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1110.0,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly lists the five pillars of Flutter's security strategy (Identify, Detect, Protect, Respond, and Recover), which matches the reference answer exactly. This information is explicitly supported by Passage [1]."
+    },
+    {
+      "id": "q005",
+      "category": "single",
+      "lang": "en",
+      "question": "Can Dart code keep running when my app isn't in the foreground, and how is that set up?",
+      "answerable": true,
+      "search_query": "background execution Dart Flutter app not foreground",
+      "status": "answered",
+      "answer": "Yes, Dart code can continue to run when the app is not in the foreground by using background execution packages. You set it up by creating a background isolate with callbacks and a callback dispatcher (or using the WorkManager plugin for persistent tasks) as described in the background‑process documentation.",
+      "sources": [
+        "https://docs.flutter.dev/resources/faq",
+        "https://docs.flutter.dev/packages-and-plugins/background-processes"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/faq",
+        "https://docs.flutter.dev/packages-and-plugins/background-processes",
+        "https://docs.flutter.dev/platform-integration/android/restore-state-android",
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-screen"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/packages-and-plugins/background-processes"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 1094.5,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and the provided passages. It correctly identifies that Dart code can run in the background, mentions the setup involving isolates, callbacks, and a callback dispatcher, and notes the WorkManager plugin for persistent tasks. All claims are directly supported by Passage [2]."
+    },
+    {
+      "id": "q006",
+      "category": "single",
+      "lang": "en",
+      "question": "In the SQLite to-do example, how does each new item get its id?",
+      "answerable": true,
+      "search_query": "SQLite to-do example item id",
+      "status": "answered",
+      "answer": "Each new item receives an automatically generated integer id because the table defines the `id` column as `INTEGER PRIMARY KEY`. SQLite assigns a unique rowid for every inserted row when the `id` is not supplied, giving each item a distinct identifier without manual handling.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/persistence/sqlite"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/persistence/sqlite",
+        "https://docs.flutter.dev/flutter-for/xamarin-forms-devs"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/app-architecture/design-patterns/sql"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 2535.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer is factually correct regarding SQLite behavior (INTEGER PRIMARY KEY auto-assigns rowid), but it misses the specific detail from the reference answer that the column is declared with `AUTOINCREMENT` and that the insert method returns the generated id. The provided passages do not contain the specific 'to-do' example or the `AUTOINCREMENT` keyword, so the assistant could not have cited it, but the omission makes the answer less precise than the reference."
+    },
+    {
+      "id": "q007",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I run staging and production variants of my app on Windows desktop?",
+      "answerable": true,
+      "search_query": "flutter run --flavor staging windows",
+      "status": "answered",
+      "answer": "Use the `--flavor` flag when running the app on Windows. For the staging variant run `flutter run -d windows --flavor staging`, and for the production variant run `flutter run -d windows --flavor production`. You can also set a default flavor in `pubspec.yaml` to omit the flag for the default build.",
+      "sources": [
+        "https://docs.flutter.dev/deployment/flavors-windows"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/flavors-windows",
+        "https://docs.flutter.dev/tools/pubspec"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/flavors-windows"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1147.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the command to run specific flavors (`flutter run -d windows --flavor <name>`) and mentions the ability to set a default flavor in `pubspec.yaml`, both of which are supported by the provided passages. It omits the specific detail from the reference answer that no CMake configuration is required, but this is a minor omission as the core instruction is accurate and fully supported by the documentation."
+    },
+    {
+      "id": "q008",
+      "category": "single",
+      "lang": "en",
+      "question": "What's the right way to remove the Flutter SDK from my machine?",
+      "answerable": true,
+      "search_query": "uninstall Flutter SDK",
+      "status": "answered",
+      "answer": "First locate the absolute path where you extracted the Flutter SDK. Then delete the entire `flutter` directory at that location; for example on macOS/Linux run `rm -rf ~/develop/flutter` or on Windows run `Remove-Item -Recurse -Force -Path (Join-Path $env:USERPROFILE \"develop\\\\flutter\")`. This removes the SDK and its configuration files from your machine.",
+      "sources": [
+        "https://docs.flutter.dev/install/uninstall"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/install/uninstall",
+        "https://docs.flutter.dev/install"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/install/uninstall"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1661.0,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the method for removing the Flutter SDK (deleting the installation directory) and provides the exact commands for macOS/Linux and Windows as found in Passage [1]. It also correctly notes that this removes configuration files, which is supported by Passage [2] and [3]. All claims are directly supported by the provided text."
+    },
+    {
+      "id": "q009",
+      "category": "single",
+      "lang": "en",
+      "question": "How can I get crash reports from my users' devices into a monitoring dashboard?",
+      "answerable": true,
+      "search_query": "Firebase Crashlytics upload crash reports monitoring dashboard",
+      "status": "answered",
+      "answer": "Add the `firebase_crashlytics` plugin to your Flutter app and initialize it; Crashlytics will then automatically send crash data from users' devices to the Firebase console where you can view a realtime dashboard. For web builds, generate source‑maps with `flutter build web --source-maps` and upload the resulting *.map files to your private error‑monitoring service (e.g., Sentry or Datadog) so crashes can be symbolicated and displayed in its dashboard.",
+      "sources": [
+        "https://docs.flutter.dev/deployment/web",
+        "https://docs.flutter.dev/data-and-backend/firebase"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/web",
+        "https://docs.flutter.dev/data-and-backend/firebase",
+        "https://docs.flutter.dev/resources/bug-reports",
+        "https://docs.flutter.dev/testing/integration-tests"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/maintenance/error-reporting"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 1557.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 3,
+      "faithfulness": 4,
+      "judge_reasoning": "The assistant's answer focuses on Firebase Crashlytics and web source maps. While the source map instructions are supported by Passage [1], the claim that Crashlytics 'automatically' sends data to a 'realtime dashboard' in the Firebase console is not explicitly supported by the provided passages (Passage [2] only lists it as a service for 'Realtime crash reporting and diagnostics' without detailing the automatic nature or specific dashboard location). More importantly, the reference answer describes a general approach involving creating a report with a stack trace and sending it to a service (like Sentry), whereas the assistant provides a specific plugin solution that misses the general 'create report' mechanism described in the reference. The assistant also introduces specific details about the Firebase console dashboard that are not in the text."
+    },
+    {
+      "id": "q010",
+      "category": "single",
+      "lang": "en",
+      "question": "What's the best way to put together a minimal reproduction when filing a Flutter bug?",
+      "answerable": true,
+      "search_query": "minimal reproduction Flutter bug",
+      "status": "answered",
+      "answer": "Create a minimal Flutter app that reproduces the issue, for example run `flutter create bug` and edit the main.dart file, or use DartPad for a single‑file example. If the problem needs native channels or multiple files, upload the full code to a separate repository and link it in the issue.",
+      "sources": [
+        "https://docs.flutter.dev/resources/bug-reports"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/bug-reports",
+        "https://docs.flutter.dev/ui/internationalization",
+        "https://docs.flutter.dev/learn/pathway/tutorial/set-up-state-project",
+        "https://docs.flutter.dev/resources/support"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/resources/bug-reports"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 3962.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and is fully supported by Passage [1]. It correctly identifies the steps: creating a minimal app via `flutter create bug` or DartPad, pasting it into the issue, and using a separate repository for complex cases like native channels. No contradictions or unsupported claims were found."
+    },
+    {
+      "id": "q011",
+      "category": "single",
+      "lang": "en",
+      "question": "Is there a tool that automatically updates code that uses deprecated Flutter APIs?",
+      "answerable": true,
+      "search_query": "update deprecated Flutter APIs tool",
+      "status": "answered",
+      "answer": "Yes. Flutter provides the **Flutter fix** tool that automatically updates code using deprecated APIs. It can be run from the command line and is also integrated into Android Studio/IntelliJ (as quick‑fixes) and VS Code (as code actions). When the analyzer finds a deprecated API, you can apply the suggested fix to update the code to the new API.",
+      "sources": [
+        "https://docs.flutter.dev/tools/flutter-fix"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/flutter-fix",
+        "https://docs.flutter.dev/platform-integration/web/wasm",
+        "https://docs.flutter.dev/platform-integration/ios/app-extensions",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/options"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/flutter-fix"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1073.0,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and the provided passages. It correctly identifies the 'Flutter fix' tool, its availability via command line, and its integration into Android Studio/IntelliJ (quick-fixes) and VS Code (code actions). The detail about the analyzer detecting deprecated APIs and suggesting fixes is supported by passage [3]."
+    },
+    {
+      "id": "q012",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I set up ChromeDriver to run Flutter integration tests in a browser?",
+      "answerable": true,
+      "search_query": "ChromeDriver Flutter integration tests browser",
+      "status": "answered",
+      "answer": "First install ChromeDriver (e.g., `npx @puppeteer/browsers install chromedriver@stable`) and add its location to your $PATH, then verify the install with `chromedriver --version`. Next create a `test_driver` directory in your project, add an `integration_test.dart` file containing `import 'package:integration_test/integration_test_driver.dart';\\nFuture<void> main() => integrationDriver();`. Finally launch ChromeDriver (`chromedriver --port=4444`) and run the integration test with `flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d chrome`.",
+      "sources": [
+        "https://docs.flutter.dev/testing/integration-tests"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/testing/integration-tests",
+        "https://docs.flutter.dev/platform-integration/web/building"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/testing/integration-tests"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1354.1,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately covers all the steps outlined in the reference answer and the provided passages, including installation, PATH configuration, verification, file creation, and execution commands. Every claim is directly supported by Passage [1]."
+    },
+    {
+      "id": "q013",
+      "category": "single",
+      "lang": "en",
+      "question": "What does json_serializable generate for me so I don't write serialization code by hand?",
+      "answerable": true,
+      "search_query": "json_serializable generate serialization code",
+      "status": "answered",
+      "answer": "The json_serializable package automatically creates the JSON‑serialization boilerplate for your classes, so you don’t have to write it yourself. It generates a companion file (e.g., user.g.dart) that contains the fromJson and toJson logic needed for encoding and decoding. This generated code handles all field mapping and eliminates manual serialization code in your model classes.",
+      "sources": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1487.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies that json_serializable generates a companion file (e.g., user.g.dart) containing the serialization logic (fromJson/toJson), allowing developers to avoid writing manual serialization code. This aligns perfectly with the reference answer and is fully supported by Passage [2], which explicitly mentions the generated file name and the elimination of manual serialization, and Passage [1], which describes it as generating boilerplate."
+    },
+    {
+      "id": "q014",
+      "category": "single",
+      "lang": "en",
+      "question": "What are the steps for generating type-safe platform bindings with Pigeon?",
+      "answerable": true,
+      "search_query": "generate type-safe platform bindings Pigeon",
+      "status": "answered",
+      "answer": "To generate type‑safe bindings with Pigeon, follow these four steps: (1) create a Pigeon definition file in Dart (e.g., pigeons/messages.dart) that declares the data structures and APIs with annotations like @HostApi or @FlutterApi; (2) run the Pigeon generator to produce the Dart and native code; (3) implement the generated native interfaces in the platform‑specific directories (android/, ios/, etc.); and (4) call the generated Dart API from your Flutter code (or invoke the native API to call back into Dart).",
+      "sources": [
+        "https://docs.flutter.dev/interop/pigeon"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/platform-channels",
+        "https://docs.flutter.dev/interop",
+        "https://docs.flutter.dev/interop/pigeon"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/interop/pigeon"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.3333333333333333,
+      "ndcg@5": 0.5,
+      "latency_ms": 1181.3,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the four steps outlined in the reference answer and Passage [3]: creating the definition file, running the generator, implementing the native interface, and calling the API. All specific details mentioned (file location, annotations, platform directories) are supported by Passage [3]."
+    },
+    {
+      "id": "q015",
+      "category": "single",
+      "lang": "en",
+      "question": "Which command produces an App Store-ready bundle for my iOS app, and where does the output go?",
+      "answerable": true,
+      "search_query": "flutter build ios --release output location",
+      "status": "answered",
+      "answer": "Run the command `flutter build swift-package --platform ios` in your Flutter project. This creates the Swift package needed for iOS integration and places the result under the `my_flutter_app/build/ios/SwiftPackages/` directory, which contains the `FlutterNativeIntegration` package and a `Scripts` folder. You can change the location with the `--output` flag if desired.",
+      "sources": [
+        "https://docs.flutter.dev/add-to-app/ios/project-setup"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/add-to-app/ios/project-setup",
+        "https://docs.flutter.dev/add-to-app/macos/project-setup",
+        "https://docs.flutter.dev/ui/assets/asset-transformation"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/ios"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 1272.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 1,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer is completely incorrect regarding the question. The question asks for the command to create an App Store-ready bundle (IPA), which is `flutter build ipa`. The assistant instead provides the command for building a Swift package for integration (`flutter build swift-package`), which is a different process entirely. While the assistant's claims are supported by the provided passages (which only cover Swift package integration), they do not answer the user's question about creating an IPA."
+    },
+    {
+      "id": "q016",
+      "category": "single",
+      "lang": "en",
+      "question": "Which system packages do I need on Ubuntu before installing Flutter?",
+      "answerable": true,
+      "search_query": "Flutter Ubuntu system packages",
+      "status": "answered",
+      "answer": "You need to install the Linux development prerequisite packages: clang, cmake, ninja-build, pkg-config, libgtk-3-dev and libstdc++-12-dev. On Ubuntu you can install them with:\n```bash\nsudo apt-get update -y && sudo apt-get upgrade -y\nsudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libstdc++-12-dev\n```",
+      "sources": [
+        "https://docs.flutter.dev/platform-integration/linux/setup"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/linux/setup",
+        "https://docs.flutter.dev/ui/widgets",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/platform-integration/windows/building"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/install/manual"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 1564.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 2,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer lists the packages required for Linux desktop development (clang, cmake, etc.) based on Passage [2], but the question asks for the general system packages needed to install Flutter on Ubuntu (curl, git, unzip, etc.), which are listed in the reference answer. Therefore, the assistant answers a different question (desktop dev prerequisites vs. general installation prerequisites), making it inaccurate relative to the reference, though faithful to the provided passages."
+    },
+    {
+      "id": "q017",
+      "category": "single",
+      "lang": "en",
+      "question": "What do I need to host so Android opens my app instead of the browser for a web link?",
+      "answerable": true,
+      "search_query": "android intent filter opens app instead browser",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/platform-integration/android/splash-screen",
+        "https://docs.flutter.dev/cookbook/navigation/set-up-app-links",
+        "https://docs.flutter.dev/platform-integration/platform-channels"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/set-up-app-links"
+      ],
+      "refusal_correct": false,
+      "source_correct": null,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.3333333333333333,
+      "ndcg@5": 0.5,
+      "latency_ms": 440.8,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q018",
+      "category": "single",
+      "lang": "en",
+      "question": "How can I restrict a text field to 5 characters?",
+      "answerable": true,
+      "search_query": "TextField maxLength 5",
+      "status": "answered",
+      "answer": "Set the TextField's `maxLength` property to 5, which limits the input to five characters. You can add it directly in the widget definition, optionally together with a controller if you need to read or clear the text.",
+      "sources": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1015.8,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant correctly identifies setting the `maxLength` property to 5 as the solution, which aligns with the reference answer and is supported by multiple passages (e.g., Passage 2 explicitly states `maxLength` is set to 5). The additional detail about using a controller to read or clear text is also supported by Passage 1, which describes the `TextEditingController`'s purpose."
+    },
+    {
+      "id": "q019",
+      "category": "single",
+      "lang": "en",
+      "question": "When adding Flutter to an existing Android app, should I use FlutterFragment or FlutterActivity?",
+      "answerable": true,
+      "search_query": "FlutterFragment FlutterActivity add Flutter to existing Android app",
+      "status": "answered",
+      "answer": "If a full‑screen activity meets your needs, prefer a `FlutterActivity` because it is quicker and easier to set up. Use a `FlutterFragment` when you need to embed Flutter inside an existing UI component such as a drawer, tab or `ViewPager`. For example, a fragment can be created with:\n```kotlin\nval flutterFragment = FlutterFragment.withNewEngine()\n    .shouldAttachEngineToActivity(false)\n    .build()\n```",
+      "sources": [
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/add-to-app",
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment",
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-screen"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 1808.5,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the use cases for FlutterActivity (quicker/easier for full-screen) and FlutterFragment (modular UI like drawers/tabs), which aligns perfectly with the reference answer and the provided passages. The code snippet included is also directly supported by Passage [3]."
+    },
+    {
+      "id": "q020",
+      "category": "single",
+      "lang": "en",
+      "question": "Where should I start if I want a cloud database for my Flutter app?",
+      "answerable": true,
+      "search_query": "cloud database Flutter app Firebase Firestore",
+      "status": "answered",
+      "answer": "Begin by adding Firebase to your Flutter project and creating a Cloud Firestore database in Test mode. Follow the Flutter Firebase setup guide, install the Firebase and FlutterFire CLIs, and then add the required plugins with `flutter pub add cloud_firestore firebase_core`. Run `flutterfire configure` to generate the `lib/firebase_options.dart` file and connect your app to the Firestore project. Finally, follow the Cloud Firestore quick‑start to start reading and writing data.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/games/firestore-multiplayer",
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/games/firestore-multiplayer",
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database",
+        "https://docs.flutter.dev/data-and-backend/firebase"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 2808.9,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer provides specific setup steps (installing CLIs, running `flutterfire configure`) that are found in Passage [1], but it misses the broader guidance in the reference answer and Passage [2] to start with the general 'Add Firebase to your Flutter app' resource and mentions of 'Firebase SQL Connect'. While the steps are technically correct for setting up Firestore, the answer is narrower than the reference, which suggests starting with the general Firebase resources and offers SQL Connect as an alternative. The specific commands and file generation details are supported by Passage [1]."
+    },
+    {
+      "id": "q021",
+      "category": "single",
+      "lang": "en",
+      "question": "How does a user type a line break in the AI chat prompt box on a phone versus a desktop?",
+      "answerable": true,
+      "search_query": "line break AI chat prompt box phone desktop",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ai/ai-toolkit/chat-client-sample",
+        "https://docs.flutter.dev/ai/ai-toolkit/user-experience",
+        "https://docs.flutter.dev/ai/ai-toolkit"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/ai/ai-toolkit/user-experience"
+      ],
+      "refusal_correct": false,
+      "source_correct": null,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 182.5,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q022",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I keep my Play Store service account credentials safe when building on a CI server?",
+      "answerable": true,
+      "search_query": "Play Store service account credentials CI",
+      "status": "answered",
+      "answer": "Store the Play Store service account JSON in an encrypted CI environment variable instead of a file, and read it directly from the variable in your Fastfile (e.g., `json_key_data: ENV['PLAY_STORE_JSON']`). You can also base64‑encode the upload keystore, save it as an encrypted variable, and decode it on the CI machine during the install phase (e.g., `echo \"$PLAY_STORE_UPLOAD_KEY\" | base64 --decode > path/to/keystore`). Use `--dart-define` for passing other secrets and avoid echoing them to the console, especially in pull‑request builds.",
+      "sources": [
+        "https://docs.flutter.dev/deployment/cd"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/cd",
+        "https://docs.flutter.dev/deployment/ios",
+        "https://docs.flutter.dev/deployment/macos",
+        "https://docs.flutter.dev/data-and-backend/google-apis"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/cd"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1523.8,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer's core advice: storing credentials in encrypted CI environment variables, using `--dart-define` for passing secrets, and avoiding echoing them to the console. It also provides specific implementation details (Fastlane `json_key_data` and base64 decoding) that are explicitly supported by Passage [1]. All claims are grounded in the provided documentation."
+    },
+    {
+      "id": "q023",
+      "category": "single",
+      "lang": "en",
+      "question": "My animations look janky. What should I check first when profiling?",
+      "answerable": true,
+      "search_query": "Flutter animation jank profiling",
+      "status": "answered",
+      "answer": "First open DevTools' Performance view and look at the frame rendering chart. Check whether any frames exceed the ~16 ms budget (shown with a red overlay), as frames longer than this cause jank. If you see such slow frames, they indicate where the animation is dropping frames and need further investigation.",
+      "sources": [
+        "https://docs.flutter.dev/perf/ui-performance",
+        "https://docs.flutter.dev/tools/devtools/performance"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/perf/ui-performance",
+        "https://docs.flutter.dev/tools/devtools/performance",
+        "https://docs.flutter.dev/tools/devtools",
+        "https://docs.flutter.dev/perf/rendering-performance"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/perf/rendering-performance"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.25,
+      "ndcg@5": 0.43067655807339306,
+      "latency_ms": 1250.7,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 2,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer focuses on using DevTools to identify slow frames, which is a valid diagnostic step but misses the primary advice in the reference answer: ensuring the app is built in profile mode (not debug) and checking for specific code issues like excessive UI rebuilds or non-lazy lists. The reference explicitly states that debug mode is not indicative of release performance, which is a critical first check that the assistant omitted. While the assistant's claims about the 16ms budget and red overlays are supported by the passages, the answer fails to cover the main points of the reference regarding build modes and common code causes."
+    },
+    {
+      "id": "q024",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I feed audio data into a stream while using flutter_soloud?",
+      "answerable": true,
+      "search_query": "flutter_soloud audio stream input",
+      "status": "answered",
+      "answer": "Create a buffer stream using `SoLoud.instance.setBufferStream` with the desired buffering type, sample rate, channels, and format. Play the stream with `await SoLoud.instance.play(stream)`. As audio data arrives, feed each chunk to the stream by calling `SoLoud.instance.addAudioDataStream(stream, audioChunk)`, and when all data has been sent, mark the stream as finished with `SoLoud.instance.setDataIsEnded(stream)`. ```dart\nfinal stream = SoLoud.instance.setBufferStream(\n  bufferingType: BufferingType.released,\n  sampleRate: 24000,\n  channels: Channels.mono,\n  format: BufferType.s16le,\n);\nfinal handle = await SoLoud.instance.play(stream);\nSoLoud.instance.addAudioDataStream(stream, audioChunk);\nSoLoud.instance.setDataIsEnded(stream);\n```",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/audio/soloud"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/audio/soloud",
+        "https://docs.flutter.dev/cookbook/audio/record"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/audio/soloud"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1359.2,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and the provided documentation passages. It correctly identifies the steps: creating a buffer stream, playing it, adding audio data chunks, and marking the stream as ended. The code example matches the documentation exactly."
+    },
+    {
+      "id": "q025",
+      "category": "single",
+      "lang": "en",
+      "question": "What do the colored bars in DevTools' Flutter frames chart show?",
+      "answerable": true,
+      "search_query": "colored bars DevTools Flutter frames chart",
+      "status": "answered",
+      "answer": "The colored bars in the Flutter frames chart indicate the portions of work for each frame. One color represents work performed on the UI thread, and the other color represents work performed on the raster thread. This visual distinction helps you see how time is split between UI and raster processing for each frame.",
+      "sources": [
+        "https://docs.flutter.dev/tools/devtools/performance"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/devtools/performance",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.9.2",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.19.0",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.30.0"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/devtools/performance"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 737.8,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies that the colored bars represent work on the UI thread and the raster thread, which aligns perfectly with the reference answer and the provided passages. All claims are directly supported by Passage [1]."
+    },
+    {
+      "id": "q026",
+      "category": "single",
+      "lang": "en",
+      "question": "Which accessibility standards and regulations might apply to my Flutter app?",
+      "answerable": true,
+      "search_query": "Flutter accessibility standards regulations",
+      "status": "answered",
+      "answer": "Your Flutter app may need to meet standards such as the Web Content Accessibility Guidelines (WCAG 2) and the European EN 301 549 specification. It can also be assessed with a Voluntary Product Accessibility Template (VPAT). In addition, legal requirements like the U.S. Americans with Disabilities Act (ADA) and Section 508 of the Rehabilitation Act, as well as the EU European Accessibility Act (EAA), may apply.",
+      "sources": [
+        "https://docs.flutter.dev/ui/accessibility/accessibility-testing",
+        "https://docs.flutter.dev/ui/accessibility"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ui/accessibility/accessibility-testing",
+        "https://docs.flutter.dev/ui/accessibility",
+        "https://docs.flutter.dev/ui/accessibility/web-accessibility"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/ui/accessibility"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 1572.7,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the three key standards mentioned in the reference (WCAG 2, EN 301 549, and VPAT). It also includes additional legal regulations (ADA, Section 508, EAA) which are explicitly supported by Passage [2] and [3], making the answer comprehensive and fully grounded in the provided documentation."
+    },
+    {
+      "id": "q027",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I find AI skills that a package I just added ships with?",
+      "answerable": true,
+      "search_query": "package AI skills list",
+      "status": "answered",
+      "answer": "After adding a package, run the skills CLI to discover and install any AI skills it provides: `dart run skills@ get`. This command scans your project dependencies and fetches the bundled package skills into your workspace.",
+      "sources": [
+        "https://docs.flutter.dev/ai/tools",
+        "https://docs.flutter.dev/packages-and-plugins/using-packages"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ai/tools",
+        "https://docs.flutter.dev/packages-and-plugins/using-packages",
+        "https://docs.flutter.dev/ai/get-started"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/ai/tools"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1498.5,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 4,
+      "judge_reasoning": "The assistant correctly identifies the command `dart run skills@ get` and the context of discovering skills from added packages, which aligns with the reference answer and passages. However, the assistant adds a specific mechanism ('scans your project dependencies') that is not explicitly stated in the provided passages, although it is a reasonable inference. The reference mentions that authors can bundle skills, which the assistant implies by saying the package 'provides' them, but the core instruction is accurate."
+    },
+    {
+      "id": "q028",
+      "category": "single",
+      "lang": "en",
+      "question": "In my iOS App Clip target, what do I add to Build Phases so the Dart code gets compiled?",
+      "answerable": true,
+      "search_query": "App Clip target Build Phases Dart compile",
+      "status": "answered",
+      "answer": "In the App Clip target’s Build Phases, add a **New Run Script Phase** (press the + sign). Place it below the Dependencies phase and set its script to:\n```bash\n/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n```\nThen uncheck **Based on dependency analysis**. This run‑script ensures the Flutter Dart code is compiled for the App Clip target.",
+      "sources": [
+        "https://docs.flutter.dev/platform-integration/ios/ios-app-clip"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/ios/ios-app-clip"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/platform-integration/ios/ios-app-clip"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1161.3,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and is fully supported by Passage [1], which details adding a Run Script Phase with the specific build command and unchecking dependency analysis for the App Clip target."
+    },
+    {
+      "id": "q029",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I use a custom font throughout my app?",
+      "answerable": true,
+      "search_query": "custom font throughout app pubspec.yaml TextStyle",
+      "status": "answered",
+      "answer": "Add the font files (e.g., *.ttf) to a folder such as fonts and list them in the pubspec.yaml under a fonts section, giving the typeface a family name. Then use that family name in a TextStyle by setting fontFamily to the same value, which you can apply to every Text widget (or to the app’s theme) to make the custom font appear throughout the app. Example YAML:\n```yaml\nflutter:\n  fonts:\n    - family: BungeeSpice\n      fonts:\n        - asset: fonts/BungeeSpice-Regular.ttf\n```\nAnd usage in Dart:\n```dart\nText('Hello', style: TextStyle(fontFamily: 'BungeeSpice')),\n```",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/flutter-for/swiftui-devs"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/flutter-for/swiftui-devs",
+        "https://docs.flutter.dev/flutter-for/uikit-devs"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 2423.3,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and the provided passages. It correctly identifies the steps: adding font files, declaring them in `pubspec.yaml` under the `flutter: fonts:` section with a family name, and applying the `fontFamily` in `TextStyle` or the app theme. The example code provided matches the structure shown in Passage [2]."
+    },
+    {
+      "id": "q030",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I read the text a user has typed into a text field?",
+      "answerable": true,
+      "search_query": "TextField controller read text",
+      "status": "answered",
+      "answer": "Attach a TextEditingController to the TextField using its controller property, then read the user‑typed value from the controller’s text property. For example:\n```dart\nfinal _controller = TextEditingController();\n...\nTextField(controller: _controller);\nString typed = _controller.text;\n```",
+      "sources": [
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/forms/text-field-changes",
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input",
+        "https://docs.flutter.dev/cookbook/networking/send-data"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.25,
+      "ndcg@5": 0.43067655807339306,
+      "latency_ms": 1126.7,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the method of using a TextEditingController attached to a TextField and reading the text property, which aligns with the reference answer and the provided passages. It omits the specific instruction to dispose of the controller when done, which is a minor point in the reference but a good practice; however, the core mechanism is accurate and fully supported by the passages."
+    },
+    {
+      "id": "q031",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I let users swipe a list item away to delete it?",
+      "answerable": true,
+      "search_query": "Dismissible swipe delete list item",
+      "status": "answered",
+      "answer": "Wrap each list item in a Dismissible widget, giving it a unique Key. In the onDismissed callback, call setState to remove the item from the underlying list and optionally show a SnackBar. You can also supply a background (e.g., a red Container) to give a visual cue while swiping. This makes the item swipe‑away and delete behavior straightforward.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/gestures/dismissible"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/gestures/dismissible",
+        "https://docs.flutter.dev/cookbook/testing/widget/tap-drag"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/gestures/dismissible"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 2197.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and the provided passages. It correctly identifies the use of the Dismissible widget, the requirement for a unique Key, and the onDismissed callback to remove the item from the data source (using setState as shown in the code examples). The additional details about showing a SnackBar and using a red background are directly supported by the code snippets in passages [2] and [3]."
+    },
+    {
+      "id": "q032",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I show a brief message at the bottom of the screen after an action?",
+      "answerable": true,
+      "search_query": "show SnackBar after action",
+      "status": "answered",
+      "answer": "Create a `SnackBar` with the message you want and use the `ScaffoldMessenger` to display it. For example, inside a button’s `onPressed` you can write:\n```dart\nfinal snackBar = SnackBar(content: const Text('Action completed'));\nScaffoldMessenger.of(context).showSnackBar(snackBar);\n```\nThis shows a brief message at the bottom of the screen after the action completes.",
+      "sources": [
+        "https://docs.flutter.dev/app-architecture/design-patterns/command",
+        "https://docs.flutter.dev/cookbook/design/snackbars"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/app-architecture/design-patterns/command",
+        "https://docs.flutter.dev/cookbook/design/snackbars",
+        "https://docs.flutter.dev/cookbook/navigation/returning-data"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/snackbars"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 1049.0,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the use of `ScaffoldMessenger.of(context).showSnackBar` with a `SnackBar` widget, which aligns perfectly with the reference answer. The provided code example is accurate and directly supported by Passage [3], which demonstrates the exact same pattern for displaying a SnackBar upon a button press."
+    },
+    {
+      "id": "q033",
+      "category": "single",
+      "lang": "en",
+      "question": "What's the efficient way to display a list with thousands of items?",
+      "answerable": true,
+      "search_query": "display list thousands items ListView.builder",
+      "status": "answered",
+      "answer": "Use a lazily‑built list such as `ListView.builder` (or `GridView.builder`) so that each widget is created only when it scrolls into view, which keeps scrolling smooth even with thousands of items. Set `itemCount` to the total number of items and provide an `itemBuilder` that returns a widget for the given index. Optionally use `prototypeItem` to improve layout performance. Example:\n```dart\nListView.builder(\n  itemCount: items.length,\n  prototypeItem: ListTile(title: Text(items.first)),\n  itemBuilder: (context, index) => ListTile(title: Text(items[index])),\n);\n```",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/lists/long-lists",
+        "https://docs.flutter.dev/ui/layout/scrolling"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/lists/long-lists",
+        "https://docs.flutter.dev/cookbook/gestures/dismissible",
+        "https://docs.flutter.dev/ui/layout/scrolling",
+        "https://docs.flutter.dev/flutter-for/swiftui-devs",
+        "https://docs.flutter.dev/cookbook/lists/mixed-list"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/lists/long-lists"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1307.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies `ListView.builder` (and `GridView.builder`) as the efficient method for displaying long lists, aligning with the reference answer's core point about lazy building. The specific parameters (`itemCount`, `itemBuilder`, `prototypeItem`) and the code example are directly supported by Passage [1] and Passage [3]."
+    },
+    {
+      "id": "q034",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I make a list scroll sideways instead of vertically?",
+      "answerable": true,
+      "search_query": "horizontal scrolling ListView",
+      "status": "answered",
+      "answer": "Use a `ListView` and set its `scrollDirection` to `Axis.horizontal`. This changes the default vertical scrolling to horizontal. Provide the list items as children, for example a row of colored containers. The snippet from the docs shows the required code.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/lists/horizontal-list"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/lists/horizontal-list",
+        "https://docs.flutter.dev/ui/layout/scrolling",
+        "https://docs.flutter.dev/ui/layout"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/lists/horizontal-list"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 954.2,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the solution (setting `scrollDirection: Axis.horizontal` on `ListView`), which matches the reference answer and is fully supported by Passage [1]. The additional details about providing children and the example of colored containers are also directly supported by the code snippet in Passage [1]."
+    },
+    {
+      "id": "q035",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I add a slide-out side navigation menu to a screen?",
+      "answerable": true,
+      "search_query": "Drawer widget navigation",
+      "status": "answered",
+      "answer": "Add a `Drawer` widget to the `Scaffold` by assigning it to the `drawer` property; the `Scaffold` will automatically show an AppBar hamburger button and handle the edge‑swipe gesture to open the side menu. Populate the `Drawer` with navigation items such as `ListTile`s that call `Navigator.of(context).pushNamed(...)` on tap. Example:\n```dart\nScaffold(\n  drawer: Drawer(\n    elevation: 20,\n    child: ListTile(\n      leading: const Icon(Icons.change_history),\n      title: const Text('Screen2'),\n      onTap: () => Navigator.of(context).pushNamed('/b'),\n    ),\n  ),\n  appBar: AppBar(title: const Text('Home')),\n  body: Container(),\n);\n```",
+      "sources": [
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/design/drawer"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/design/drawer"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/drawer"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 1947.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 3,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the core mechanism (adding a Drawer to the Scaffold's drawer property) and provides a valid code example supported by the passages. However, it misses the specific recommendation from the reference answer to use a `ListView` (with `DrawerHeader` and `ListTiles`) to populate the drawer, instead suggesting a single `ListTile` or generic items. Additionally, it omits the instruction to close the drawer with `Navigator.pop`, which is a key part of the reference answer and the documentation steps."
+    },
+    {
+      "id": "q036",
+      "category": "single",
+      "lang": "en",
+      "question": "How can I save a small value like a counter so it survives app restarts?",
+      "answerable": true,
+      "search_query": "shared_preferences counter persistence",
+      "status": "answered",
+      "answer": "Add the `shared_preferences` plugin to your project, import it, and use it to read and write the counter as an integer. On startup retrieve the value with `prefs.getInt('counter') ?? 0` and store a new value after each increment with `prefs.setInt('counter', newValue)`. This stores the data on disk, so the counter persists across app restarts.",
+      "sources": [
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/cookbook/persistence/key-value"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/persistence/key-value",
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/persistence/key-value"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.3333333333333333,
+      "ndcg@5": 0.5,
+      "latency_ms": 1739.3,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the `shared_preferences` package and the specific methods (`getInt`, `setInt`) to use for persisting a counter, which aligns perfectly with the reference answer. All technical details, including the code snippets and the explanation that data is stored on disk, are directly supported by the provided passages (specifically passages 1, 2, and 4)."
+    },
+    {
+      "id": "q037",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I connect my app to a WebSocket server and listen to messages?",
+      "answerable": true,
+      "search_query": "WebSocket connect listen messages",
+      "status": "answered",
+      "answer": "Add the `web_socket_channel` package and create a channel with `WebSocketChannel.connect(Uri.parse('wss://echo.websocket.org'))`. Then use a `StreamBuilder` that listens to `channel.stream` and shows the received data, e.g. `StreamBuilder(stream: channel.stream, builder: (context, snapshot) => Text(snapshot.hasData ? '${snapshot.data}' : ''),)`. Close the connection with `channel.sink.close()` when finished.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/networking/web-sockets"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/networking/web-sockets"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/networking/web-sockets"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1027.1,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the package, connection method, listening mechanism (StreamBuilder), and closing method, all of which are supported by the provided passages. However, it omits the step for sending data to the server (`channel.sink.add`), which is a key component of the reference answer and the overall WebSocket workflow described in the passages (specifically step 3 in passage [2])."
+    },
+    {
+      "id": "q038",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I fade a widget in and out?",
+      "answerable": true,
+      "search_query": "AnimatedOpacity fade widget in out",
+      "status": "answered",
+      "answer": "Wrap the widget you want to fade in an `AnimatedOpacity` inside a `StatefulWidget`. Keep a boolean (e.g., `_visible`) and toggle it with `setState` when a button is pressed, then set `opacity: _visible ? 1.0 : 0.0` and provide a `duration` such as 500 ms. The `child` is the widget to animate, for example a green `Container`.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/animation/opacity-animation"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/animation/opacity-animation",
+        "https://docs.flutter.dev/ui/animations/implicit-animations"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/animation/opacity-animation"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 2570.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and the provided passages. It correctly identifies `AnimatedOpacity` as the widget to use, specifies the need for a `StatefulWidget` and `setState` to toggle visibility, and provides the correct parameters (`opacity`, `duration`, `child`) with values matching the example in the passages (e.g., 500ms duration, green container)."
+    },
+    {
+      "id": "q039",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I define app-wide colors and text styles that widgets can reuse?",
+      "answerable": true,
+      "search_query": "app-wide colors text styles ThemeData",
+      "status": "answered",
+      "answer": "Create a ThemeData that defines a `colorScheme` and a `textTheme`, then assign it to the `theme` property of your `MaterialApp`. This makes the colors and text styles available to every widget through `Theme.of(context)`. Example:\n```dart\nMaterialApp(\n  title: appName,\n  theme: ThemeData(\n    colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple, brightness: Brightness.dark),\n    textTheme: TextTheme(\n      displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),\n      titleLarge: GoogleFonts.oswald(fontSize: 30, fontStyle: FontStyle.italic),\n      bodyMedium: GoogleFonts.merriweather(),\n      displaySmall: GoogleFonts.pacifico(),\n    ),\n  ),\n  home: const MyHomePage(title: appName),\n);\n```",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/design/themes"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/themes"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/themes"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1627.8,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the method for defining app-wide colors and text styles (setting ThemeData on MaterialApp) and how to access them (Theme.of(context)), which aligns perfectly with the reference answer. The provided code example is directly supported by Passage [2], which contains the exact same code snippet and explanation."
+    },
+    {
+      "id": "q040",
+      "category": "single",
+      "lang": "en",
+      "question": "How do I update my Flutter SDK to the newest version?",
+      "answerable": true,
+      "search_query": "update Flutter SDK latest version flutter upgrade",
+      "status": "answered",
+      "answer": "Run the command `flutter upgrade` to download the latest SDK for your current channel. If you are on the stable channel and want a newer version, first switch to another channel (e.g., `flutter channel beta`) and then run `flutter upgrade` again.",
+      "sources": [
+        "https://docs.flutter.dev/install/upgrade"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/install/upgrade",
+        "https://docs.flutter.dev/security",
+        "https://docs.flutter.dev/platform-integration/web/wasm",
+        "https://docs.flutter.dev/tools/devtools/cli"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/install/upgrade"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1489.9,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the `flutter upgrade` command as the primary method, which aligns with the reference answer. It also includes additional details about switching channels (specifically to beta) if on stable, which is supported by Passage [1] and [2]. While the reference answer is more concise, the assistant's answer is accurate and fully supported by the provided documentation."
+    },
+    {
+      "id": "q041",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I fetch a list of items from a REST API and show it in a scrollable list?",
+      "answerable": true,
+      "search_query": "fetch list from REST API show in scrollable ListView",
+      "status": "answered",
+      "answer": "Use the `http.get()` method (as shown in the fetchPhotos example) to request the JSON data from the REST endpoint, then decode the response into a list of items. In the UI, place a `ListView.builder` (the scrollable list widget) and supply the item count and an `itemBuilder` that creates a widget for each item in the decoded list. This combination fetches the data in the background and displays it in a scrollable list. The two snippets from the docs illustrate the network request and the list view construction.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/flutter-for/react-native-devs"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/ui/layout",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/ui/layout/constraints"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/networking/fetch-data",
+        "https://docs.flutter.dev/cookbook/lists/long-lists"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 1577.3,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the use of `http.get()` for fetching data and `ListView.builder` for displaying the list, which aligns with the reference answer's key points (fetch data, convert, display lazily). The specific details about `itemCount` and `itemBuilder` are supported by Passage [4]. The claim that `ListView.builder` builds children on demand (lazy loading) is supported by Passage [4]. The reference mentions adding the `http` package, which is implied by the usage in the passages but not explicitly stated as a step in the assistant's answer, though this is a minor omission. All technical claims are supported by the provided passages."
+    },
+    {
+      "id": "q042",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I open a new screen with some data and get a value back when it closes?",
+      "answerable": true,
+      "search_query": "Navigator.push with arguments get result",
+      "status": "answered",
+      "answer": "Use `Navigator.push` to open the new screen, passing the data through `RouteSettings(arguments: yourData)`. In the pushed screen, retrieve the arguments from `ModalRoute.of(context)!.settings.arguments`. When the screen is ready to close, call `Navigator.pop(context, resultValue)` with the value you want to return. The caller awaits the `push` call to get the result, e.g., `final result = await Navigator.push(...);`.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/navigation/passing-data",
+        "https://docs.flutter.dev/cookbook/navigation/returning-data",
+        "https://docs.flutter.dev/flutter-for/android-devs"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/passing-data",
+        "https://docs.flutter.dev/cookbook/navigation/returning-data",
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/flutter-for/uikit-devs"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/passing-data",
+        "https://docs.flutter.dev/cookbook/navigation/returning-data"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 2968.8,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately describes the process of passing data via `RouteSettings` and retrieving it via `ModalRoute.of(context)!.settings.arguments`, which is supported by Passage [1]. It also correctly explains returning data via `Navigator.pop` and awaiting the `push` future, supported by Passages [2], [3], and [4]. All claims are directly supported by the provided documentation."
+    },
+    {
+      "id": "q043",
+      "category": "multi",
+      "lang": "en",
+      "question": "What are my options for storing data on the device, and how do I save a simple setting?",
+      "answerable": true,
+      "search_query": "shared_preferences store simple setting",
+      "status": "answered",
+      "answer": "You can store data on the device using the `shared_preferences` plugin for simple key‑value pairs, or use other local or cloud databases for more complex needs (see the \"Choose a database\" guide). To save a simple setting with `shared_preferences`, add the package, obtain an instance, and call a setter such as `setInt` or `setString`:\n```dart\nfinal prefs = await SharedPreferences.getInstance();\nawait prefs.setInt('counter', 42); // or prefs.setString('theme', 'dark')\n```",
+      "sources": [
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/persistence/key-value"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/cookbook/persistence/key-value",
+        "https://docs.flutter.dev/ui/accessibility/ui-design-and-styling"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database",
+        "https://docs.flutter.dev/cookbook/persistence/key-value"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 0.5,
+      "ndcg@5": 0.38685280723454163,
+      "latency_ms": 2119.1,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant correctly identifies `shared_preferences` for simple settings and references the 'Choose a database' guide for other options, aligning with the reference answer. All technical details (package name, methods like `setInt`/`setString`, and the guide reference) are supported by the provided passages."
+    },
+    {
+      "id": "q044",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I test a widget that depends on a network call without hitting the real server?",
+      "answerable": true,
+      "search_query": "mock network call widget test http client mockito",
+      "status": "answered",
+      "answer": "Create a mock http.Client with Mockito by adding the @GenerateMocks annotation (as shown in the passages) and run build_runner to generate a MockHttpClient class. In your widget test, provide this MockHttpClient to the code that performs the network call, and use when(...).thenAnswer(...) to return a fake http.Response for success or error cases. This lets the widget exercise its logic without contacting the real server. Finally, pump the widget in a testWidgets block and verify the UI reacts to the mocked data.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/testing/unit/mocking"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/testing/unit/mocking"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/testing/unit/mocking",
+        "https://docs.flutter.dev/cookbook/testing/widget/introduction"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584,
+      "latency_ms": 1384.0,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 3,
+      "judge_reasoning": "The assistant's answer correctly identifies the use of Mockito to mock the HTTP client, which aligns with the reference answer's core strategy. However, the assistant describes the process as a widget test (using `testWidgets` and pumping), whereas the provided passages and the reference answer focus on unit testing a function (`fetchAlbum`) using standard `test` blocks. While the general approach of mocking is correct, the specific context of 'widget test' and 'pumping' is not supported by the provided passages, which demonstrate unit testing a function. Additionally, the reference answer mentions verifying with finders, which is specific to widget tests, but the passages do not show this. The assistant's answer is mostly correct in spirit but introduces details (widget test specifics) not found in the passages."
+    },
+    {
+      "id": "q045",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I set up separate dev and production builds for both Android and iOS?",
+      "answerable": true,
+      "search_query": "dev and production builds Android iOS Flutter",
+      "status": "answered",
+      "answer": "Add a `default-flavor` entry in your pubspec.yaml (e.g., `flutter:\n  default-flavor: production`) so the production flavor runs without extra flags and other flavors can be launched with `flutter run --flavor <name>`. For Android, edit `android/app/build.gradle.kts` to include a `flavorDimensions` line and a `productFlavors` block that creates `staging` and `production` flavors, each with its own `applicationIdSuffix` (see the Kotlin snippet). For iOS, create Xcode schemes called `staging` and `production` and then update `ios/Podfile` to map the Debug, Profile, and Release configurations for each scheme (see the Ruby snippet). Finally, run the desired flavor with `flutter run --flavor staging` (or rely on the default production) for Android, and select the appropriate Xcode scheme when building for iOS.",
+      "sources": [
+        "https://docs.flutter.dev/tools/pubspec",
+        "https://docs.flutter.dev/deployment/flavors-ios",
+        "https://docs.flutter.dev/deployment/flavors"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/pubspec",
+        "https://docs.flutter.dev/deployment/flavors-ios",
+        "https://docs.flutter.dev/deployment/flavors"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/flavors",
+        "https://docs.flutter.dev/deployment/flavors-ios"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6934264036172708,
+      "latency_ms": 1902.0,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately covers the key points of the reference: defining product flavors in Android Gradle, creating schemes/configurations in Xcode for iOS, and using the `--flavor` flag. It also correctly includes the `default-flavor` pubspec option, which is supported by the provided passages. All specific details (file names, code snippets, configuration mappings) are directly supported by the provided passages."
+    },
+    {
+      "id": "q046",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I add a custom typeface and make it the default text style for the whole app?",
+      "answerable": true,
+      "search_query": "custom typeface default TextStyle ThemeData fontFamily",
+      "status": "answered",
+      "answer": "First add the font files to your project and declare them in the `pubspec.yaml` under a `fonts` block, giving each a `family` name (e.g., Raleway). Then set that family as the default by assigning its name to the `fontFamily` property of the app's `ThemeData` in `MaterialApp`. Example:\n```dart\nreturn MaterialApp(\n  title: 'Custom Fonts',\n  theme: ThemeData(fontFamily: 'Raleway'),\n  home: const MyHomePage(),\n);\n```",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/design/fonts"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/cookbook/design/themes"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584,
+      "latency_ms": 1010.0,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the two main steps: declaring the font in `pubspec.yaml` and setting the `fontFamily` in the app's `ThemeData`. It provides a code example that matches the reference and the provided passages. All claims are directly supported by the text and code snippets in the passages."
+    },
+    {
+      "id": "q047",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I find out what is making my release build large?",
+      "answerable": true,
+      "search_query": "Flutter release build size analysis",
+      "status": "answered",
+      "answer": "Run a size analysis build by adding the `--analyze-size` flag to your release build command (e.g., `flutter build apk --analyze-size`). The build will print a high‑level size summary in the terminal and create a `*-code-size-analysis_*.json` file (shown in the console output). Open that JSON file in DevTools' App Size tool to see a detailed breakdown of assets, native code, Flutter libraries, and Dart packages that contribute to the binary size. You can also load two such files to diff builds and pinpoint what changed.",
+      "sources": [
+        "https://docs.flutter.dev/perf/app-size",
+        "https://docs.flutter.dev/tools/devtools/app-size"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/perf/app-size",
+        "https://docs.flutter.dev/tools/devtools/app-size",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.20.0"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/perf/app-size",
+        "https://docs.flutter.dev/tools/devtools/app-size"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1255.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately reflects the reference answer and the provided passages. It correctly identifies the `--analyze-size` flag, the generation of a JSON file, and the use of DevTools' App Size tool for detailed analysis and diffing. All specific claims (file naming pattern, terminal summary, diff capability) are supported by passages [1], [2], and [3]."
+    },
+    {
+      "id": "q048",
+      "category": "multi",
+      "lang": "en",
+      "question": "My app stutters while scrolling. How do I profile it and what general practices help?",
+      "answerable": true,
+      "search_query": "profile scrolling performance Flutter",
+      "status": "answered",
+      "answer": "Run the app in profile mode (for example, `flutter run --profile` or set `flutterMode` to `profile` in your launch.json) and then open DevTools. In DevTools use the Performance view – the frames chart, frame‑analysis tab and timeline trace – to record scrolling and spot long‑running frames or jank. Generally, profile a profile or release build, enable the performance overlay, keep expensive work off the UI thread, and use the profiling data to optimise build/layout/paint work rather than relying on debug‑mode timings.",
+      "sources": [
+        "https://docs.flutter.dev/perf/ui-performance",
+        "https://docs.flutter.dev/testing/build-modes",
+        "https://docs.flutter.dev/tools/devtools/performance",
+        "https://docs.flutter.dev/perf/web-performance"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/perf/ui-performance",
+        "https://docs.flutter.dev/testing/build-modes",
+        "https://docs.flutter.dev/tools/devtools/performance",
+        "https://docs.flutter.dev/perf/web-performance"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/perf/ui-performance",
+        "https://docs.flutter.dev/perf/best-practices",
+        "https://docs.flutter.dev/tools/devtools/performance"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.6666666666666666,
+      "mrr": 1.0,
+      "ndcg@5": 0.7039180890341347,
+      "latency_ms": 1819.1,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the need to run in profile mode and use the DevTools Performance view, which aligns with the reference answer and the provided passages. It also lists general practices like keeping expensive work off the UI thread and optimizing build/layout/paint, which are standard Flutter performance best practices implied by the context of profiling those specific phases, even if not explicitly detailed in the short passages provided. The specific UI elements mentioned (frames chart, frame analysis tab) are explicitly listed in Passage [3]."
+    },
+    {
+      "id": "q049",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I add a Flutter module to an existing iOS app and debug it?",
+      "answerable": true,
+      "search_query": "add Flutter module existing iOS app debug",
+      "status": "answered",
+      "answer": "First, create a Flutter module with `flutter create --template module my_flutter` (see passage 2). Then, optionally add the module settings in the host app’s `pubspec.yaml` under `flutter: module:` (passage 1) to specify iOS bundle identifier or other options. Embed the generated iOS framework into your existing Xcode project using the CocoaPods method described in the module’s `.ios/` folder, and run `flutter pub get` before building (passage 3). Finally, debug the integrated module by launching the app and using `flutter attach` over Wi‑Fi or USB to attach the debugger (passages 4 and 5).",
+      "sources": [
+        "https://docs.flutter.dev/tools/pubspec",
+        "https://docs.flutter.dev/add-to-app/ios/project-setup-legacy",
+        "https://docs.flutter.dev/add-to-app/debugging",
+        "https://docs.flutter.dev/add-to-app"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/pubspec",
+        "https://docs.flutter.dev/add-to-app/ios/project-setup-legacy",
+        "https://docs.flutter.dev/add-to-app/debugging",
+        "https://docs.flutter.dev/add-to-app"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/add-to-app/ios/project-setup",
+        "https://docs.flutter.dev/add-to-app/debugging"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 0.3333333333333333,
+      "ndcg@5": 0.3065735963827292,
+      "latency_ms": 1265.5,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the key steps: creating the module, configuring the pubspec (optional), integrating via CocoaPods (as per the legacy method in the passages), and debugging with `flutter attach`. It accurately reflects the reference answer's core points (integrate then attach). All specific claims (commands, file paths, debugging methods) are supported by the provided passages."
+    },
+    {
+      "id": "q050",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I make a web link open a specific screen in my Android app?",
+      "answerable": true,
+      "search_query": "url_launcher deep link navigation",
+      "status": "answered",
+      "answer": "Use Flutter's deep linking support: define the screen you want to show as a named route (or via onGenerateRoute/Router) in your MaterialApp, then when a web URL with that path is opened on Android, Flutter will launch the app and navigate to that route. The same URL format works for web browsers, so the link `myapp://path/to/screen` (or `https://example.com/#/path/to/screen`) will open the specific screen in the Android app. Named routes are simple to set up, though the Router widget is the recommended modern approach.",
+      "sources": [
+        "https://docs.flutter.dev/ui/navigation/deep-linking"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ui/navigation/deep-linking",
+        "https://docs.flutter.dev/tools/devtools/deep-links",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.40.2",
+        "https://docs.flutter.dev/ui/navigation"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/ui/navigation/deep-linking",
+        "https://docs.flutter.dev/cookbook/navigation/set-up-app-links"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584,
+      "latency_ms": 3126.5,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 2,
+      "faithfulness": 3,
+      "judge_reasoning": "The assistant's answer focuses on Flutter's internal routing (named routes/Router) and claims that simply defining a route allows a web URL to open the app on Android. It fails to mention the critical Android-specific requirement of setting up Android App Links (assetlinks.json) or handling the intent in the Android manifest, which is the main point of the reference answer. Additionally, the assistant suggests using named routes, which the provided passages explicitly state are 'no longer recommended' and have limitations, whereas the reference and passages imply a more robust setup (Router/App Links)."
+    },
+    {
+      "id": "q051",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I organize my app into layers and share state between screens with ChangeNotifier?",
+      "answerable": true,
+      "search_query": "organize app layers share state ChangeNotifier",
+      "status": "answered",
+      "answer": "Put the business logic in a ViewModel class that lives in its own layer between the UI screens and the data model, and have that class extend `ChangeNotifier`. Inside the ViewModel expose the state you need (e.g., loading flags, data objects) and call `notifyListeners()` whenever you modify it. Provide the same ViewModel instance to each screen (for example with the `provider` package) so all screens listen to the same notifier and share the state. A minimal example is:\n```dart\nclass CartModel extends ChangeNotifier {\n  final List<Item> _items = [];\n  UnmodifiableListView<Item> get items => UnmodifiableListView(_items);\n  void add(Item item) {\n    _items.add(item);\n    notifyListeners();\n  }\n}\n```",
+      "sources": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/change-notifier",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/simple"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/change-notifier",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/simple"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/app-architecture/guide",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/simple"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 0.5,
+      "ndcg@5": 0.38685280723454163,
+      "latency_ms": 1575.9,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the MVVM layered structure (ViewModel between UI and Model) and the use of ChangeNotifier for state sharing, which aligns with the reference answer. The specific code example and the mention of the `provider` package are directly supported by Passage [5] (Simple app state management) and Passage [4] (State management in Flutter)."
+    },
+    {
+      "id": "q052",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I publish to Google Play and automate the release process?",
+      "answerable": true,
+      "search_query": "publish to Google Play automate release flutter",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/android",
+        "https://docs.flutter.dev/cookbook/games/achievements-leaderboard"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/android",
+        "https://docs.flutter.dev/deployment/cd"
+      ],
+      "refusal_correct": false,
+      "source_correct": null,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584,
+      "latency_ms": 3188.1,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q053",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I validate a form and also read what the user entered?",
+      "answerable": true,
+      "search_query": "validate form read user input FormField TextFormField",
+      "status": "answered",
+      "answer": "Create a `Form` with a `GlobalKey` and place a `TextFormField` inside it. Provide a `validator` function to the field to check the input and return an error string or null. Add an `onSaved` callback that stores the entered value in a variable, then call `formKey.currentState!.validate()` and, if it returns true, call `formKey.currentState!.save()` to run the `onSaved` callbacks and read the user input. This pattern validates the form and captures the entered data for later use.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/forms/validation",
+        "https://docs.flutter.dev/flutter-for/react-native-devs"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/forms/validation",
+        "https://docs.flutter.dev/cookbook/forms/text-input",
+        "https://docs.flutter.dev/flutter-for/react-native-devs"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/forms/validation",
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584,
+      "latency_ms": 1226.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the use of `Form`, `GlobalKey`, and `validator` for validation, which aligns with the reference and passages. However, it suggests using `onSaved` to read user input, whereas the reference answer explicitly specifies using a `TextEditingController` (the 'retrieve input recipe'). While `onSaved` is a valid alternative supported by the passages, the assistant misses the specific method requested by the reference, resulting in a minor accuracy deduction. All technical claims made by the assistant are supported by the provided passages."
+    },
+    {
+      "id": "q054",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I keep heavy JSON parsing from freezing the UI?",
+      "answerable": true,
+      "search_query": "heavy JSON parsing freeze UI compute isolate",
+      "status": "answered",
+      "answer": "Run the JSON parsing on a background isolate so it doesn’t block the main UI thread. Use Flutter’s `compute()` function (or `Isolate.run()`) to execute the heavy `parsePhotos` function in a separate isolate. For example:\n```dart\nreturn compute(parsePhotos, response.body);\n```\nThis moves the parsing work off the UI thread and eliminates jank.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/resources/faq",
+        "https://docs.flutter.dev/perf/faq"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/resources/faq",
+        "https://docs.flutter.dev/interop/dart-ffi",
+        "https://docs.flutter.dev/perf/faq"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/networking/background-parsing",
+        "https://docs.flutter.dev/perf/isolates"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584,
+      "latency_ms": 1505.7,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies moving JSON parsing to a background isolate using `compute()` or `Isolate.run()` to prevent UI freezing, which aligns perfectly with the reference answer and the provided passages. All claims are directly supported by the text in the passages."
+    },
+    {
+      "id": "q055",
+      "category": "multi",
+      "lang": "en",
+      "question": "How do I support screen reader users and verify that my app works with them?",
+      "answerable": true,
+      "search_query": "screen reader support flutter accessibility semantics",
+      "status": "answered",
+      "answer": "Support screen reader users by using Flutter's built‑in widgets (which generate an accessibility tree) and, when needed, customizing semantics with the Semantics widget and appropriate roles (e.g., button, heading). Call SemanticsBinding.instance.ensureSemantics() at startup and, if you need a specific voice, set TextSpan.locale on the text. Verify support by turning on the platform screen reader (TalkBack on Android, VoiceOver on iOS/macOS, Narrator/NVDA on Windows, Orca on Linux) and navigating your app, and on web enable the \"Enable accessibility\" button or programmatically auto‑enable accessibility.",
+      "sources": [
+        "https://docs.flutter.dev/ui/accessibility/assistive-technologies",
+        "https://docs.flutter.dev/ui/accessibility/web-accessibility"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ui/accessibility/assistive-technologies",
+        "https://docs.flutter.dev/ui/accessibility/web-accessibility",
+        "https://docs.flutter.dev/ui/accessibility"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/ui/accessibility/assistive-technologies",
+        "https://docs.flutter.dev/ui/accessibility/accessibility-testing"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "mrr": 1.0,
+      "ndcg@5": 0.6131471927654584,
+      "latency_ms": 1734.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer is highly accurate and faithful to the provided passages. It correctly identifies the use of standard widgets and the `Semantics` widget for customization (Passage 2), the use of `TextSpan.locale` for specific voices (Passage 1), and the specific screen readers for various platforms (Passages 2 and 4). It also correctly mentions the web-specific requirement to enable accessibility (Passage 4). The reference answer mentions specific testing tools (Accessibility Scanner/Inspector) which are not in the passages, but the assistant's method of testing (turning on the screen reader and navigating) is explicitly supported by Passage 4 and is a valid interpretation of 'verify that my app works'."
+    },
+    {
+      "id": "q056",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I optimize FlatList performance with getItemLayout in React Native?",
+      "answerable": false,
+      "search_query": "FlatList performance getItemLayout",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/perf/appendix",
+        "https://docs.flutter.dev/perf/ui-performance",
+        "https://docs.flutter.dev/tools/devtools/performance"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 522.7,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q057",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "When will Flutter 7.0 be released?",
+      "answerable": false,
+      "search_query": "Flutter 7.0 release date",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.7.0",
+        "https://docs.flutter.dev/ui/internationalization"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 918.6,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q058",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I set up Riverpod providers with code generation?",
+      "answerable": false,
+      "search_query": "Riverpod providers code generation",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/resources/faq",
+        "https://docs.flutter.dev/data-and-backend/serialization/json",
+        "https://docs.flutter.dev/cookbook/testing/unit/mocking"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 2586.7,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q059",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I manage state with GetX controllers and Obx?",
+      "answerable": false,
+      "search_query": "GetX controllers Obx state management",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/change-notifier",
+        "https://docs.flutter.dev/data-and-backend/state-mgmt/options"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 575.5,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q060",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I set up Supabase authentication in Flutter?",
+      "answerable": false,
+      "search_query": "Supabase authentication Flutter",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/data-and-backend/google-apis",
+        "https://docs.flutter.dev/data-and-backend/firebase",
+        "https://docs.flutter.dev/resources/games-toolkit"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 856.2,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q061",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I deploy my Flutter web app to Vercel?",
+      "answerable": false,
+      "search_query": "deploy Flutter web app Vercel",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/deployment/web",
+        "https://docs.flutter.dev/resources/faq",
+        "https://docs.flutter.dev/reference/supported-platforms"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 2044.2,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q062",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I deploy my backend with Docker and Kubernetes?",
+      "answerable": false,
+      "search_query": "deploy backend Docker Kubernetes",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/web/faq",
+        "https://docs.flutter.dev/reference/supported-platforms",
+        "https://docs.flutter.dev/deployment/web",
+        "https://docs.flutter.dev/resources/faq"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 266.4,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q063",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I configure an nginx reverse proxy for a Node.js server?",
+      "answerable": false,
+      "search_query": "nginx reverse proxy Node.js",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/web/web-dev-config-file",
+        "https://docs.flutter.dev/platform-integration/web/web-images",
+        "https://docs.flutter.dev/ui/accessibility/accessibility-testing",
+        "https://docs.flutter.dev/ui/interactivity/focus"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 288.3,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q064",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "Give me a recipe for sourdough bread.",
+      "answerable": false,
+      "search_query": "sourdough bread recipe",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ai/ai-toolkit/feature-integration",
+        "https://docs.flutter.dev/cookbook/testing/integration/profiling",
+        "https://docs.flutter.dev/cookbook/networking/delete-data"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 566.2,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q065",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "What is the difference between a mutex and a semaphore in Rust?",
+      "answerable": false,
+      "search_query": "mutex semaphore Rust",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/interop",
+        "https://docs.flutter.dev/interop/ffigen",
+        "https://docs.flutter.dev/resources/architectural-overview"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 281.6,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q066",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I query a MongoDB collection from my Flutter app?",
+      "answerable": false,
+      "search_query": "MongoDB query Flutter",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/web/initialization",
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/data-and-backend/persistence/choose-a-database",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.60.0",
+        "https://docs.flutter.dev/data-and-backend/firebase"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 1092.6,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q067",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I set up RevenueCat subscriptions in my app?",
+      "answerable": false,
+      "search_query": "RevenueCat subscriptions setup Flutter",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/setup",
+        "https://docs.flutter.dev/platform-integration/macos/setup",
+        "https://docs.flutter.dev/platform-integration/linux/setup",
+        "https://docs.flutter.dev/install",
+        "https://docs.flutter.dev/tools/vs-code"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 749.7,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q068",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I use a Cubit with Equatable states in Bloc?",
+      "answerable": false,
+      "search_query": "Cubit Equatable states Bloc",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/change-notifier",
+        "https://docs.flutter.dev/learn/pathway/tutorial/listenable-builder",
+        "https://docs.flutter.dev/cookbook/plugins/google-mobile-ads",
+        "https://docs.flutter.dev/cookbook/games/firestore-multiplayer",
+        "https://docs.flutter.dev/app-architecture/case-study/ui-layer"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 685.3,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q069",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "How do I secure my REST API with OAuth2 refresh tokens on the server?",
+      "answerable": false,
+      "search_query": "OAuth2 refresh tokens server",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/ui/internationalization",
+        "https://docs.flutter.dev/ui/adaptive-responsive/platform-adaptations",
+        "https://docs.flutter.dev/platform-integration/web/initialization",
+        "https://docs.flutter.dev/cookbook/networking/web-sockets",
+        "https://docs.flutter.dev/tools/vs-code"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 349.7,
+      "llm_calls": 1,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q070",
+      "category": "out_of_scope",
+      "lang": "en",
+      "question": "What are the Kotlin Multiplatform Compose benchmark numbers compared to Flutter?",
+      "answerable": false,
+      "search_query": "Kotlin Multiplatform Compose benchmark numbers Flutter",
+      "status": "not_found",
+      "answer": "Bu sorunun cevabını Flutter dokümanında bulamadım. / I could not find the answer in the Flutter docs.",
+      "sources": [],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/compose-activity",
+        "https://docs.flutter.dev/flutter-for/compose-devs"
+      ],
+      "expected_urls": [],
+      "refusal_correct": true,
+      "source_correct": null,
+      "latency_ms": 970.5,
+      "llm_calls": 2,
+      "judged": false,
+      "accuracy": null,
+      "faithfulness": null,
+      "judge_reasoning": null
+    },
+    {
+      "id": "q071",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Uygulamamda Android'in tahmini geri (predictive back) animasyonunu nasıl açarım?",
+      "answerable": true,
+      "search_query": "enable Android predictive back animation Flutter",
+      "status": "answered",
+      "answer": "Android 13 veya daha yeni bir sürümde tahmini geri animasyonunu etkinleştirmek için `android/app/src/main/AndroidManifest.xml` dosyasındaki `<application>` etiketine `android:enableOnBackInvokedCallback=\"true\"` özniteliğini ekleyin. Android 14 (API 34) ve üzeri cihazlarda bu özellik varsayılan olarak açıktır, ek bir işlem gerekmez.\n```xml\n<application\n    android:label=\"my_app\"\n    android:name=\"${applicationName}\"\n    android:icon=\"@mipmap/ic_launcher\"\n    android:enableOnBackInvokedCallback=\"true\">\n    <!-- ... -->\n</application>\n```",
+      "sources": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back",
+        "https://docs.flutter.dev/add-to-app/android/add-flutter-fragment"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/platform-integration/android/predictive-back"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1638.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the file, the attribute, and the requirement for Android 13 or later, matching the reference answer and Passage [1]. It also correctly notes that the feature is enabled by default on Android 14 (API 34), which is supported by Passage [3]. All claims are directly supported by the provided passages."
+    },
+    {
+      "id": "q072",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Flutter SDK'yı bilgisayarımdan doğru şekilde nasıl kaldırırım?",
+      "answerable": true,
+      "search_query": "Flutter SDK uninstall",
+      "status": "answered",
+      "answer": "Flutter SDK'yı kaldırmak için önce SDK'nın kurulu olduğu klasörün tam yolunu bulun. Ardından bu klasörü silin; Windows PowerShell'de `Remove-Item -Recurse -Force -Path (Join-Path $env:USERPROFILE \"develop\\flutter\")` komutunu, macOS/Linux'ta ise `rm -rf ~/develop/flutter` komutunu çalıştırabilirsiniz. Bu işlem SDK ve ilgili yapılandırma dosyalarını sisteminizden kaldırır.",
+      "sources": [
+        "https://docs.flutter.dev/install/uninstall"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/install/uninstall",
+        "https://docs.flutter.dev/install"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/install/uninstall"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1660.5,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the steps to uninstall Flutter (finding the path and deleting the directory) and provides the exact commands found in the passages for both Windows and macOS/Linux. It also correctly notes that this removes the SDK and related configuration files, which is supported by Passage [2] and [3]."
+    },
+    {
+      "id": "q073",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Kullanımdan kaldırılmış (deprecated) Flutter API'lerini kullanan kodu otomatik güncelleyen bir araç var mı?",
+      "answerable": true,
+      "search_query": "deprecated Flutter API auto update tool",
+      "status": "answered",
+      "answer": "Evet, Flutter fix adlı bir araç, kullanımdan kaldırılmış API'leri otomatik olarak yeni API'lere dönüştürür; IDE’de (IntelliJ, Android Studio, VS Code) bir ışık ampulüyle öneri gösterilir ve komut satırından da çalıştırılabilir.",
+      "sources": [
+        "https://docs.flutter.dev/tools/flutter-fix"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/tools/flutter-fix",
+        "https://docs.flutter.dev/tools/devtools/release-notes/release-notes-2.14.0",
+        "https://docs.flutter.dev/add-to-app",
+        "https://docs.flutter.dev/platform-integration/web/wasm"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/tools/flutter-fix"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1886.3,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the `flutter fix` tool and its availability via command line and IDEs (IntelliJ, Android Studio, VS Code), which aligns with the reference answer. The details about the 'light bulb' suggestion in IDEs are supported by Passage [1], and the general availability is supported by Passage [2]. All claims are accurate and grounded in the provided text."
+    },
+    {
+      "id": "q074",
+      "category": "tr",
+      "lang": "tr",
+      "question": "json_serializable kullanırsam serileştirme kodunu elle yazmam gerekmesin diye neyi otomatik üretir?",
+      "answerable": true,
+      "search_query": "json_serializable automatic code generation",
+      "status": "answered",
+      "answer": "json_serializable paketi, sınıflarınıza eklediğiniz anotasyonlar sayesinde JSON serileştirme ve deserileştirme için gerekli kodu (toJson ve fromJson metodlarını içeren boilerplate) otomatik olarak üretir. Böylece bu kodları elle yazmanız gerekmez.",
+      "sources": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/data-and-backend/serialization/json"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1640.4,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies that `json_serializable` uses annotations to automatically generate serialization code (specifically `toJson` and `fromJson`), eliminating the need for manual writing. This aligns with the reference answer's core point about a source code generator creating the necessary logic. The specific method names (`toJson`/`fromJson`) are standard Dart/Flutter knowledge and are implied by the 'serialization boilerplate' mentioned in the passages, making the answer accurate and faithful to the provided context."
+    },
+    {
+      "id": "q075",
+      "category": "tr",
+      "lang": "tr",
+      "question": "iOS uygulamamın App Store'a yüklenecek paketini hangi komutla oluştururum ve çıktı nereye düşer?",
+      "answerable": true,
+      "search_query": "flutter build ios output location",
+      "status": "answered",
+      "answer": "iOS uygulamanızın App Store'a yüklenecek paketini oluşturmak için terminalde `flutter build swift-package --platform ios` komutunu çalıştırın. Bu komut, Flutter uygulamanızın `my_flutter_app/build/ios/SwiftPackages/` klasöründe `FlutterNativeIntegration` adlı bir Swift paketi oluşturur. İsterseniz `--output` bayrağıyla çıktının konumunu değiştirebilirsiniz.",
+      "sources": [
+        "https://docs.flutter.dev/add-to-app/ios/project-setup"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/add-to-app/ios/project-setup",
+        "https://docs.flutter.dev/add-to-app/macos/project-setup",
+        "https://docs.flutter.dev/ui/internationalization"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/deployment/ios"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 2612.7,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 1,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer is completely incorrect regarding the user's question. The user asked for the command to create an App Store package (IPA), which is `flutter build ipa`. The assistant provided the command for building a Swift package for integration (`flutter build swift-package`), which is a different use case (adding Flutter to an existing native app) and does not produce an installable IPA file. While the assistant's claims are supported by the provided passages (which only contain info on Swift Package Manager integration), the answer fails to address the actual question and contradicts the reference answer."
+    },
+    {
+      "id": "q076",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Uygulamamın her yerinde özel bir yazı tipini (font) nasıl kullanırım?",
+      "answerable": true,
+      "search_query": "custom font everywhere app pubspec.yaml",
+      "status": "answered",
+      "answer": "Önce font dosyasını proje içinde bir klasöre (örneğin fonts/) koyup, `pubspec.yaml` dosyasının `flutter:` bölümüne `fonts:` tanımlaması ekleyerek font ailesi ve asset yollarını belirtin. Örneğin:\n```yaml\nflutter:\n  fonts:\n    - family: BungeeSpice\n      fonts:\n        - asset: fonts/BungeeSpice-Regular.ttf\n```\nArdından istediğiniz widget’ta `TextStyle(fontFamily: 'BungeeSpice')` kullanarak bu özel yazı tipini uygulayabilirsiniz:\n```dart\nText('Cupertino', style: TextStyle(fontSize: 40, fontFamily: 'BungeeSpice')),\n```",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/flutter-for/swiftui-devs"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts",
+        "https://docs.flutter.dev/tools/pubspec",
+        "https://docs.flutter.dev/flutter-for/swiftui-devs"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/fonts"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 2050.7,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer accurately describes the process of adding a custom font in Flutter: placing the file in a folder, declaring it in `pubspec.yaml` under `flutter: fonts:`, and using `TextStyle(fontFamily: ...)` to apply it. All specific details, including the YAML structure and the Dart code example, are directly supported by Passage [4]. The answer covers the key points of the reference answer (assets, pubspec declaration, TextStyle usage) without contradiction."
+    },
+    {
+      "id": "q077",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Kullanıcının bir TextField'a yazdığı metni nasıl okurum?",
+      "answerable": true,
+      "search_query": "TextField read input",
+      "status": "answered",
+      "answer": "Bir `TextEditingController` oluşturup `TextField`'in `controller` özelliğine atayın. Kullanıcı yazdığında metni `controller.text` ile okuyabilirsiniz. Örnek: `final _controller = TextEditingController(); … TextField(controller: _controller); … String girilenMetin = _controller.text;`",
+      "sources": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input",
+        "https://docs.flutter.dev/cookbook/networking/send-data"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/learn/pathway/tutorial/user-input",
+        "https://docs.flutter.dev/cookbook/networking/send-data",
+        "https://docs.flutter.dev/cookbook/networking/update-data"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/forms/retrieve-input"
+      ],
+      "refusal_correct": true,
+      "source_correct": false,
+      "hit@5": 0.0,
+      "recall@5": 0.0,
+      "mrr": 0.0,
+      "ndcg@5": 0.0,
+      "latency_ms": 1168.1,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 4,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the use of `TextEditingController` and accessing the `text` property, which aligns with the reference answer and is supported by passages [1], [2], [3], and [4]. However, the assistant omits the instruction to dispose of the controller, which is a key part of the reference answer. Therefore, it misses a minor point regarding resource management."
+    },
+    {
+      "id": "q078",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Bir işlemden sonra ekranın altında kısa bir mesaj nasıl gösteririm?",
+      "answerable": true,
+      "search_query": "show SnackBar after operation",
+      "status": "answered",
+      "answer": "İşlem bittikten sonra bir SnackBar oluşturup ScaffoldMessenger aracılığıyla gösterilir. Örneğin, `ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('İşlem tamamlandı')));` kodu mesajı ekranın alt kısmında gösterir. Bu yöntemle önce bir SnackBar tanımlanır, ardından mevcut ScaffoldMessenger bulunarak `showSnackBar` çağrılır.",
+      "sources": [
+        "https://docs.flutter.dev/cookbook/design/snackbars",
+        "https://docs.flutter.dev/cookbook/navigation/returning-data"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/cookbook/navigation/returning-data",
+        "https://docs.flutter.dev/cookbook/design/snackbars",
+        "https://docs.flutter.dev/cookbook/gestures/dismissible",
+        "https://docs.flutter.dev/app-architecture/design-patterns/command"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/design/snackbars"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 1434.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies the use of `ScaffoldMessenger.of(context).showSnackBar` with a `SnackBar` widget, which aligns perfectly with the reference answer. The provided code example and explanation are fully supported by the passages, specifically Passage [2] which demonstrates creating a SnackBar and displaying it via ScaffoldMessenger."
+    },
+    {
+      "id": "q079",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Binlerce öğeli bir listeyi verimli şekilde nasıl gösteririm?",
+      "answerable": true,
+      "search_query": "efficiently display large list ListView.builder",
+      "status": "answered",
+      "answer": "Binlerce öğeyi verimli bir şekilde göstermek için `ListView.builder` kullanın; bu yapı, yalnızca ekranda görünen öğeleri oluşturur ve geri kalanları geri dönüşümle yönetir. `itemCount` ile öğe sayısını, `itemBuilder` ile her bir öğeyi bir widget (ör. `ListTile`) olarak döndürün. Gerekirse `prototypeItem` ile öğe yüksekliğini önceden tanımlayabilirsiniz. ```dart\nListView.builder(\n  itemCount: items.length,\n  prototypeItem: ListTile(title: Text(items.first)),\n  itemBuilder: (context, index) {\n    return ListTile(title: Text(items[index]));\n  },\n)\n```",
+      "sources": [
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/cookbook/lists/long-lists"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/flutter-for/android-devs",
+        "https://docs.flutter.dev/cookbook/lists/long-lists",
+        "https://docs.flutter.dev/cookbook/navigation/passing-data",
+        "https://docs.flutter.dev/flutter-for/react-native-devs",
+        "https://docs.flutter.dev/ui/adaptive-responsive/large-screens"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/cookbook/lists/long-lists"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 0.5,
+      "ndcg@5": 0.6309297535714575,
+      "latency_ms": 1536.3,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant correctly identifies `ListView.builder` as the solution for efficient rendering of large lists, which aligns with the reference answer. The code example and parameters (`itemCount`, `itemBuilder`, `prototypeItem`) are directly supported by the provided passages (specifically passage [2]). The explanation that it builds only visible items is supported by passage [4]."
+    },
+    {
+      "id": "q080",
+      "category": "tr",
+      "lang": "tr",
+      "question": "Flutter SDK'mı en yeni sürüme nasıl güncellerim?",
+      "answerable": true,
+      "search_query": "flutter upgrade SDK latest version",
+      "status": "answered",
+      "answer": "Mevcut kanalı görmek için `flutter channel` komutunu çalıştırın. En yeni Flutter SDK sürümünü indirmek için `flutter upgrade` komutunu kullanın. Stable kanaldasınız ve daha yeni bir sürüm istiyorsanız önce `flutter channel beta` ile beta kanalına geçip ardından `flutter upgrade` yapabilirsiniz.",
+      "sources": [
+        "https://docs.flutter.dev/install/upgrade"
+      ],
+      "retrieved_urls": [
+        "https://docs.flutter.dev/install/upgrade",
+        "https://docs.flutter.dev/platform-integration/web/wasm",
+        "https://docs.flutter.dev/tools/devtools"
+      ],
+      "expected_urls": [
+        "https://docs.flutter.dev/install/upgrade"
+      ],
+      "refusal_correct": true,
+      "source_correct": true,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "mrr": 1.0,
+      "ndcg@5": 1.0,
+      "latency_ms": 1637.6,
+      "llm_calls": 2,
+      "judged": true,
+      "accuracy": 5,
+      "faithfulness": 5,
+      "judge_reasoning": "The assistant's answer correctly identifies `flutter upgrade` as the command to update the SDK on the current channel, which aligns with the reference answer. It also includes additional details about checking and switching channels (specifically to beta for newer versions), which are fully supported by the provided passages (Passages 1 and 2). There are no contradictions or unsupported claims."
+    }
+  ]
+}

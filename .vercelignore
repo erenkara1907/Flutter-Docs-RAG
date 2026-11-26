@@ -1,0 +1,17 @@
+.env
+.venv/
+.pytest_cache/
+__pycache__/
+data/
+docs/
+eval/
+tests/
+index/r0/
+index/r1/
+index/r2a/
+index/r3/
+index/r4/
+index/r4v/
+index/r5/
+index/r6/
+PORTFOLIO_QUICK_PROJECTS.md

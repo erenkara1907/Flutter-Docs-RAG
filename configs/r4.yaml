@@ -1,0 +1,5 @@
+name: r4
+chunker: heading
+embedding: bge-small
+hybrid: true
+rewrite: true
