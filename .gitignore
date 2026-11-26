@@ -32,3 +32,5 @@ index/*
 
 # personal planning notes, not part of the project
 PORTFOLIO_QUICK_PROJECTS.md
+.vercel
+.env*
