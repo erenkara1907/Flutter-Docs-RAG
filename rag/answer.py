@@ -130,19 +130,27 @@ def _not_found(hits: list[Hit], status: Literal["not_found", "invalid_reply"] = 
     return Answer(answer=NOT_FOUND_MESSAGE, status=status, related=related)
 
 
+def reply_to_answer(raw: str, hits: list[Hit]) -> Answer:
+    """Turn a model reply into the Answer to show. Raises ValueError when the reply cannot be trusted."""
+    reply = parse_reply(raw, n_sources=len(hits))
+    if not reply.found_in_docs:
+        return _not_found(hits)
+    chosen = [hits[number - 1].chunk for number in reply.used_sources]
+    return Answer(answer=reply.answer.strip(), status="answered", sources=_unique_sources(chosen))
+
+
+def invalid_reply_answer(hits: list[Hit]) -> Answer:
+    return _not_found(hits, status="invalid_reply")
+
+
 def generate_answer(question: str, hits: list[Hit], llm: Llm, attempts: int = MAX_ATTEMPTS) -> Answer:
     prompt = build_prompt(question, hits)
     for attempt in range(1, attempts + 1):
         try:
-            reply = parse_reply(llm(prompt), n_sources=len(hits))
+            return reply_to_answer(llm(prompt), hits)
         except ValueError as error:
             logger.warning("answer attempt %d/%d rejected: %s", attempt, attempts, error)
-            continue
-        if not reply.found_in_docs:
-            return _not_found(hits)
-        chosen = [hits[number - 1].chunk for number in reply.used_sources]
-        return Answer(answer=reply.answer.strip(), status="answered", sources=_unique_sources(chosen))
-    return _not_found(hits, status="invalid_reply")
+    return invalid_reply_answer(hits)
 
 
 def answer_question(question: str, searcher: Searcher, llm: Llm) -> Answer:

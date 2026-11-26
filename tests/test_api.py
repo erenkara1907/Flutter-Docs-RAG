@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -91,6 +93,67 @@ class TestLimiter:
         now[0] = 100.0
         limiter.allow("b")
         assert "a" not in limiter.known_clients()
+
+
+def events_of(response) -> list[dict]:
+    return [json.loads(line) for line in response.text.splitlines() if line]
+
+
+def good_stream(question: str):
+    yield {"type": "meta", "search_query": "q"}
+    yield {"type": "token", "text": "Hello "}
+    yield {"type": "token", "text": "Türkçe ✓"}
+    yield {"type": "done", "answer": good_answer(question).model_dump()}
+
+
+def stream_client(stream_fn=good_stream, limit=100) -> TestClient:
+    return TestClient(create_app(good_answer, SlidingWindowLimiter(limit, 60.0), stream_fn))
+
+
+class TestStream:
+    def test_sends_one_json_event_per_line(self):
+        response = stream_client().post("/api/ask/stream", json={"question": "hi"})
+        assert response.status_code == 200
+        assert response.headers["content-type"].startswith("application/x-ndjson")
+        events = events_of(response)
+        assert [e["type"] for e in events] == ["meta", "token", "token", "done"]
+        assert events[2]["text"] == "Türkçe ✓"
+        assert events[-1]["answer"]["sources"][0]["url"] == "https://docs.flutter.dev/ui/layout"
+
+    def test_proxies_must_not_buffer_or_cache_the_stream(self):
+        headers = stream_client().post("/api/ask/stream", json={"question": "hi"}).headers
+        assert "no-cache" in headers["cache-control"] and headers["x-accel-buffering"] == "no"
+
+    @pytest.mark.parametrize("question", ["", "  ", "x" * 301])
+    def test_bad_questions_are_a_400_before_any_stream_starts(self, question):
+        def must_not_run(q):
+            raise AssertionError("must not stream")
+
+        assert stream_client(must_not_run).post("/api/ask/stream", json={"question": question}).status_code == 400
+
+    def test_the_rate_limit_applies(self):
+        c = stream_client(limit=1)
+        codes = [c.post("/api/ask/stream", json={"question": "hi"}).status_code for _ in range(2)]
+        assert codes == [200, 429]
+
+    def test_a_failure_midway_becomes_an_error_event_without_details(self):
+        def broken(q):
+            yield {"type": "token", "text": "partial"}
+            raise RuntimeError("secret internal detail gsk_123")
+
+        events = events_of(stream_client(broken).post("/api/ask/stream", json={"question": "hi"}))
+        assert events[-1]["type"] == "error" and "gsk_123" not in json.dumps(events)
+
+    def test_an_exhausted_quota_is_an_error_event_too(self):
+        def quota(q):
+            raise DailyQuotaExceeded("daily limit")
+            yield  # pragma: no cover
+
+        events = events_of(stream_client(quota).post("/api/ask/stream", json={"question": "hi"}))
+        assert events == [{"type": "error", "message": events[0]["message"]}] and "daily" not in events[0]["message"]
+
+    def test_the_endpoint_does_not_exist_without_a_stream_function(self):
+        assert client().post("/api/ask/stream", json={"question": "hi"}).status_code == 404
 
 
 class TestStaticMount:

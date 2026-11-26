@@ -14,7 +14,7 @@ import logging
 import os
 import re
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Iterator
 from typing import Literal
 
 import openai
@@ -47,6 +47,7 @@ WAIT_MARGIN_S = 0.5
 CHARS_PER_TOKEN = 3  # rough; prompts mix English and code
 
 Llm = Callable[[str], str]
+LlmStream = Callable[[str], Iterator[str]]
 
 _FENCE_WRAPPER = re.compile(r"^```(?:json)?\s*|\s*```$")
 _DURATION_PART = re.compile(r"(\d+(?:\.\d+)?)(ms|h|m|s)")
@@ -114,6 +115,61 @@ def ollama_llm(model: str = OLLAMA_MODEL, temperature: float = 0.0, seed: int | 
     return call
 
 
+def _groq_client() -> OpenAI:
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    api_key = os.environ.get(GROQ_KEY_VARIABLE)
+    if not api_key:
+        raise RuntimeError(f"{GROQ_KEY_VARIABLE} is not set; put it in .env")
+    return OpenAI(base_url=GROQ_URL, api_key=api_key, max_retries=0)
+
+
+def _chat_options(
+    temperature: float, max_tokens: int, seed: int | None, reasoning_effort: str | None, json_mode: bool = True
+) -> dict:
+    options: dict = {"temperature": temperature, "max_tokens": max_tokens}
+    if json_mode:
+        options["response_format"] = {"type": "json_object"}
+    if seed is not None:
+        options["seed"] = seed
+    if reasoning_effort is not None:
+        options["extra_body"] = {"reasoning_effort": reasoning_effort}
+    return options
+
+
+def groq_stream(
+    model: str,
+    temperature: float = 0.0,
+    seed: int | None = None,
+    max_tokens: int = 1500,
+    reasoning_effort: str | None = None,
+    client: OpenAI | None = None,
+) -> LlmStream:
+    """Like groq_llm, but yields the reply piece by piece. It never waits for quota: a person is watching.
+
+    JSON mode is off: with it Groq sends the whole reply in one piece. The prompt still demands JSON,
+    and the caller validates the finished reply exactly as for a non-streamed one.
+    """
+    groq = client if client is not None else _groq_client()
+    options = _chat_options(temperature, max_tokens, seed, reasoning_effort, json_mode=False)
+
+    def stream(prompt: str) -> Iterator[str]:
+        try:
+            response = groq.chat.completions.create(
+                model=model, messages=[{"role": "user", "content": prompt}], stream=True, **options
+            )
+            for part in response:
+                if part.choices and part.choices[0].delta.content:
+                    yield part.choices[0].delta.content
+        except openai.RateLimitError as error:
+            if is_daily_quota(str(error)):
+                raise DailyQuotaExceeded(f"Groq daily quota for {model} is used up") from None
+            raise
+
+    return stream
+
+
 def groq_llm(
     model: str,
     temperature: float = 0.0,
@@ -125,19 +181,8 @@ def groq_llm(
     on_wait: Callable[[float], None] | None = None,
 ) -> Llm:
     """`on_wait` is told about every pause, so callers can keep quota waits out of latency numbers."""
-    from dotenv import load_dotenv
-
-    load_dotenv()
-    api_key = os.environ.get(GROQ_KEY_VARIABLE)
-    if not api_key:
-        raise RuntimeError(f"{GROQ_KEY_VARIABLE} is not set; put it in .env")
-
-    client = OpenAI(base_url=GROQ_URL, api_key=api_key, max_retries=0)  # retries are handled below
-    options: dict = {"response_format": {"type": "json_object"}, "temperature": temperature, "max_tokens": max_tokens}
-    if seed is not None:
-        options["seed"] = seed
-    if reasoning_effort is not None:
-        options["extra_body"] = {"reasoning_effort": reasoning_effort}
+    client = _groq_client()  # its own retries are off: they are handled below
+    options = _chat_options(temperature, max_tokens, seed, reasoning_effort)
 
     quota = {"remaining": None, "reset_at": 0.0}  # last known minute budget
 
@@ -184,6 +229,13 @@ def groq_llm(
         raise AssertionError("unreachable")
 
     return call
+
+
+def make_llm_stream(role: Role, seed: int | None = None) -> LlmStream:
+    """Streaming Groq model for one job (used by the live site)."""
+    return groq_stream(
+        GROQ_MODELS[role], seed=seed, max_tokens=_MAX_TOKENS[role], reasoning_effort=_REASONING_EFFORT.get(role)
+    )
 
 
 def make_llm(
